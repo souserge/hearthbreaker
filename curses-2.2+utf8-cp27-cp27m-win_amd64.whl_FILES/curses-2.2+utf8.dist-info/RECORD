@@ -1,0 +1,6 @@
+_curses.pyd,sha256=7_5aIBuxXMrDolH7D_fG-Icx7WqWWjGW6QGa4FpfWOM,108032
+_curses_panel.pyd,sha256=paqfPNq_id69RnKWwSlYdaZGkrhwYoAeYgpcW9e_F8w,18944
+curses-2.2+utf8.dist-info/METADATA,sha256=VeluojHJFpd1naD_D9DTxd9JMl6YZHyrMtzKPoIMbl4,1002
+curses-2.2+utf8.dist-info/RECORD,,
+curses-2.2+utf8.dist-info/WHEEL,sha256=h6mNh4gGUrzd_Uq7rT-QnZ3ncTmGsNOorG7-QcKHZuU,106
+curses-2.2+utf8.dist-info/top_level.txt,sha256=W7Nm3F_fURFxwDNaRFAmYiVG4COa2VJIFIdYGSjceq8,22

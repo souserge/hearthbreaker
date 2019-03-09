@@ -1,5 +1,6 @@
 import json
 from hearthbreaker.agents.basic_agents import RandomAgent
+from hearthbreaker.agents.test_agent import TalkativeAgent
 from hearthbreaker.cards.heroes import hero_for_class
 from hearthbreaker.constants import CHARACTER_CLASS
 from hearthbreaker.engine import Game, Deck, card_lookup
@@ -50,9 +51,9 @@ def do_stuff():
 
     deck1 = load_deck("mage.hsdeck")
     deck2 = load_deck("mage2.hsdeck")
-    game = Game([deck1, deck2], [RandomAgent(), RandomAgent()])
-
-    print(timeit.timeit(play_game, 'gc.enable()', number=100000))
+    game = Game([deck1, deck2], [TalkativeAgent(), RandomAgent()])
+    # game = Game([deck1, deck2], [RandomAgent(), RandomAgent()])
+    print(timeit.timeit(play_game, 'gc.enable()', number=1))
 
 
 if __name__ == "__main__":
