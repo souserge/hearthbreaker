@@ -73,7 +73,7 @@ class PredictableAgent(Agent):
                     player.game.play_card(card)
                     done_something = True
                     break
-
+        # absolutna kopia calego obiektu, nowe wartości stworzone, stary obiekt nie jest modyfikowany
         for minion in copy.copy(player.minions):
             if minion.can_attack():
                 minion.attack()
@@ -125,3 +125,5 @@ class RandomAgent(DoNothingAgent):
     def choose_option(self, options, player):
         options = self.filter_options(options, player)
         return options[random.randint(0, len(options) - 1)]
+
+
