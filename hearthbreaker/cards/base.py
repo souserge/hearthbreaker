@@ -79,6 +79,7 @@ class Card(Bindable, GameObject):
         self.current_target = None
         self.collectible = collectible
 
+
     def can_choose(self, player):
         """
         Verifies if this card can be chosen from a list of options (i.e. in Tracking)
@@ -156,6 +157,12 @@ class Card(Bindable, GameObject):
         Outputs a description of the card for debugging purposes.
         """
         return self.name + " (" + str(self.mana) + " mana)"
+
+    def __repr__(self):  # pragma: no cover
+        """
+        Outputs a description of the card for debugging purposes.
+        """
+        return self.name #+ " (" + str(self.mana) + " mana)"
 
     def replace(self, new_card):
         index = self.player.hand.index(self)

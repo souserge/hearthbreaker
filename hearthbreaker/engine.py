@@ -151,10 +151,10 @@ class Game(Bindable):
             self.current_player = self.players[0]
             self.other_player = self.players[1]
             self._turns_passed += 1
-        if self._turns_passed >= 50:
-            self.players[0].hero.dead = True
-            self.players[1].hero.dead = True
-            self.game_over()
+        # if self._turns_passed >= 50:
+        #     self.players[0].hero.dead = True
+        #     self.players[1].hero.dead = True
+        #     self.game_over()
         if self.current_player.max_mana < 10:
             self.current_player.max_mana += 1
 
