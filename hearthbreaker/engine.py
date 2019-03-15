@@ -236,7 +236,11 @@ class Game(Bindable):
             raise GameException("The game has ended")
         if not card.can_use(self.current_player, self):
             raise GameException("That card cannot be used")
+
+        print("PLAYER HAND: ", self.current_player.hand)
+        print("PLAYER CARD: ", card)
         card_index = self.current_player.hand.index(card)
+
         self.current_player.hand.pop(card_index)
         self.current_player.mana -= card.mana_cost()
         self._all_cards_played.append(card)

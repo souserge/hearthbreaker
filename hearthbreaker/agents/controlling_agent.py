@@ -49,27 +49,35 @@ class ControllingAgent(Agent):
 
     # player używa wszystkie karty jakie może użyć, czyli dopóki starczy mu many
     def use_all_possible_cards(self, player):
+        print(">>>>>>>>>>>>>>>\nPlayer hand: ",player.hand)
         possible_cards_to_use = [ (card, card.mana) for card in player.hand if (card.can_use(player, player.game))]
         #print("Possible cards to use: ", possible_cards_to_use)
         possible_cards_to_use_sorted = self.Sort(possible_cards_to_use)
         print("Possible cards to use (sorted by mana): ", possible_cards_to_use_sorted)
 
-        for card_tuple in possible_cards_to_use_sorted:
-            card = card_tuple[0]
-            if card.can_use(player, player.game):
-                print(card)
+        # for card_tuple in possible_cards_to_use_sorted:
+        #     card = card_tuple[0]
+        #     if card.can_use(player, player.game):
+        #         print(card)
+        #         player.game.play_card(card)
 
+        # print(type(card[0]) for card in possible_cards_to_use_sorted)
+        # print(type(card) for card in player.hand)
 
-        done_something = True
-        while done_something:
-            done_something = False
-            for card in player.hand:#ossible_cards_to_use_sorted:
-               # card = card_tuple[0]
+        cards_fin = False
+        for card_tuple in possible_cards_to_use_sorted: #player.hand:
+            if not cards_fin:
+                print(">>> next")
+                print(card_tuple)
+                card = card_tuple[0]
                 if card.can_use(player, player.game):
                     player.game.play_card(card)
                     print("USING CARD FROM HAND:\n\t", card)
-                    done_something = True
-                    break
+            else:
+                cards_fin = True
+                break
+
+                print("<<< fin")
 
 
 
