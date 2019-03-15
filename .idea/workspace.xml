@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="04d26fac-3d7e-46f4-bab5-1d9fd2a59775" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py" />
+      <change beforePath="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" afterPath="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" />
+      <change beforePath="$PROJECT_DIR$/hearthbreaker/cards/base.py" afterPath="$PROJECT_DIR$/hearthbreaker/cards/base.py" />
+      <change beforePath="$PROJECT_DIR$/hearthbreaker/engine.py" afterPath="$PROJECT_DIR$/hearthbreaker/engine.py" />
+      <change beforePath="$PROJECT_DIR$/hearthbreaker/game_objects.py" afterPath="$PROJECT_DIR$/hearthbreaker/game_objects.py" />
+      <change beforePath="$PROJECT_DIR$/run_games.py" afterPath="$PROJECT_DIR$/run_games.py" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/hearthbreaker$run_games.coverage" NAME="run_games Coverage Results" MODIFIED="1552646187201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="aggressive_agent.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="888">
+              <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controlling_agent.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="59" column="27" lean-forward="true" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+              <folding>
+                <marker date="1552646187187" expanded="true" signature="2540:2970" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trade_agent_tests.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/agents/trade_agent_tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basic_agents.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="936">
+              <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3840">
+              <caret line="164" column="26" lean-forward="false" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game_objects.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/game_objects.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="1013" column="57" lean-forward="false" selection-start-line="1013" selection-start-column="57" selection-end-line="1013" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="abc.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Python37/Lib/abc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3312">
+              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="neutral_tests.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/card_tests/neutral_tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11808">
+              <caret line="503" column="59" lean-forward="false" selection-start-line="503" selection-start-column="59" selection-end-line="503" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_games.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run_games.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="55" column="13" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="engine.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1195">
+              <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+              <folding>
+                <marker date="1552645759243" expanded="true" signature="5543:5668" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>game_ended</find>
+      <find>.die(</find>
+      <find>random</find>
+      <find>d:</find>
+      <find>costs:</find>
+      <find>str</find>
+      <find>class</find>
+      <find>class car</find>
+      <find>hand</find>
+      <find>die(</find>
+      <find>Bloodfen Raptor</find>
+      <find>check_opponent_life</find>
+      <find>&gt;&gt;&gt;Sta</find>
+      <find>__repr</find>
+      <find>Minion:</find>
+      <find>class hero</find>
+      <find>class card</find>
+      <find>load_deck</find>
+      <find>game_ov</find>
+      <find>minion:</find>
+      <find>stat</find>
+      <find>class target</find>
+      <find>choose_target</find>
+      <find>lambda</find>
+      <find>targets =</find>
+      <find>at index</find>
+      <find>card</find>
+      <find>cards</find>
+      <find>game_over</find>
+      <find>use_all_possible_cards</find>
+    </findStrings>
+    <dirStrings>
+      <dir>D:\studia\___cos\hearthbreaker</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/hearthbreaker/agents/trade/controlling_agent.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" />
+        <option value="$PROJECT_DIR$/run_games.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/cards/base.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/game_objects.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/engine.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="agents" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+              <item name="minions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="serialization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="tags" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="agents" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="project.scopes" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="run_games" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hearthbreaker" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_games.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.run_games" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04d26fac-3d7e-46f4-bab5-1d9fd2a59775" name="Default" comment="" />
+      <created>1552575924573</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552575924573</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3878453" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35911602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15520833" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5226519" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py</url>
+          <line>34</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="5" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/agents/trade_agent_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="39" column="30" lean-forward="true" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3840">
+          <caret line="164" column="26" lean-forward="false" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/game_objects.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27312">
+          <caret line="1148" column="28" lean-forward="true" selection-start-line="1148" selection-start-column="28" selection-end-line="1148" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3312">
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/card_tests/neutral_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12072">
+          <caret line="503" column="59" lean-forward="true" selection-start-line="503" selection-start-column="59" selection-end-line="503" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1104">
+          <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8256">
+          <caret line="351" column="29" lean-forward="false" selection-start-line="351" selection-start-column="29" selection-end-line="361" selection-end-column="81" />
+          <folding>
+            <marker date="1552645759243" expanded="true" signature="5543:5668" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="63" column="40" lean-forward="true" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
+          <folding>
+            <marker date="1552646187187" expanded="true" signature="2540:2970" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/trade/controlling_agent.py" />
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/heroes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/agents/testing_agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-968">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/agents/trade_agent_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3312">
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/card_tests/neutral_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11808">
+          <caret line="503" column="59" lean-forward="false" selection-start-line="503" selection-start-column="59" selection-end-line="503" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3840">
+          <caret line="164" column="26" lean-forward="false" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/game_objects.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="1013" column="57" lean-forward="false" selection-start-line="1013" selection-start-column="57" selection-end-line="1013" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="55" column="13" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1195">
+          <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+          <folding>
+            <marker date="1552645759243" expanded="true" signature="5543:5668" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="59" column="27" lean-forward="true" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+          <folding>
+            <marker date="1552646187187" expanded="true" signature="2540:2970" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

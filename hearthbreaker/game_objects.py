@@ -199,6 +199,7 @@ class GameObject:
                                                        if aura.match(self) and isinstance(aura.status, stat_class)],
                       stat)
 
+        # print(">>>Stat:", stat)
         return max(0, stat)
 
     def __to_json__(self):
@@ -861,6 +862,9 @@ class Minion(Character):
         if spell_damage:
             self.buffs.append(Buff(SpellDamage(spell_damage)))
 
+    def __repr__(self):
+        return 'Minion: '+ self.card.__str__() + " ("+str(self.health) + " health) ("+str(self.base_attack)+" attack)"
+
     def add_to_board(self, index):
         aura_affects = {}
         for player in self.game.players:
@@ -1007,7 +1011,7 @@ class Minion(Character):
         return True
 
     def __str__(self):  # pragma: no cover
-        return "({0}) ({1}) {2} at index {3}".format(self.calculate_attack(), self.health, self.card.name, self.index)
+        return "Minion: {0} ({1} health) ({2} attack)    ...at index {3}".format(self.card.__str__(), self.health, self.calculate_attack(), self.index)
 
     def copy(self, new_owner, new_game=None):
         new_minion = Minion(self.base_attack, self.base_health,
@@ -1092,6 +1096,10 @@ class Hero(Character):
         self.power.hero = self
         self.card = None
         self.power_targets_minions = False
+
+    def __repr__(self):
+        return 'Hero: '+ self.card.__str__() + " ("+str(self.health) + " health) ("+str(self.base_attack)+" attack)"
+
 
     def calculate_attack(self):
         if self.player == self.player.game.current_player and self.player.weapon:

@@ -41,6 +41,7 @@ class DoNothingAgent(Agent):
         return [True, True, True, True]
 
     def do_turn(self, player):
+        print('---\nTurn of', player)
         pass
 
     def choose_target(self, targets):
