@@ -162,7 +162,8 @@ class Card(Bindable, GameObject):
         """
         Outputs a description of the card for debugging purposes.
         """
-        return self.name #+ " (" + str(self.mana) + " mana)"
+        #return self.name #+ " (" + str(self.mana) + " mana)"
+        return repr((self.name, self.mana))
 
     def replace(self, new_card):
         index = self.player.hand.index(self)
@@ -221,6 +222,9 @@ class MinionCard(Card, metaclass=abc.ABCMeta):
         self.choices = choices
         self.combo = combo
         self._placeholder = None
+
+    def __repr__(self):
+        return repr((self.name, self.mana))
 
     def can_use(self, player, game):
         """

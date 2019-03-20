@@ -17,18 +17,24 @@ class ControllingAgent(Agent):
             print('AFTER ATTACK WITH HERO')
         print('HERO CANNOT ATTACK')
 
+
+
     # player atakuje wszystkimi swoimi stronnikami, zaczyna od ataku na other_player.hero
-    def attack_with_all_possible_minions(self, player):
+    def attack_opponents_minions_with_my_own_minions(self, player):
+
+        attacking_minions = [minion for minion in player.minions if minion.can_attack()]
+        # print("---", attacking_minions, "---")
+
+
         attack_done = False
-        for minion in player.minions:
-            if minion.can_attack():
-                attack_done = True
-                print('BEFORE ATTACK WITH MINIONS')
-                self.check_opponent_life(player)
-                print(">>> Attacking with minion:\n\tlife:", minion)#.card.__str__() +""+ str(minion.health), "\n\tattack:", str(minion.base_attack))
-                minion.attack()
-                self.check_opponent_life(player)
-                print('AFTER ATTACK WITH MINIONS')
+        for minion in attacking_minions:
+            attack_done = True
+            print('BEFORE ATTACK WITH MINIONS')
+            self.check_opponent_life(player)
+            print(">>> Attacking with minion:\n\tlife:", minion)
+            minion.attack()
+            self.check_opponent_life(player)
+            print('AFTER ATTACK WITH MINIONS')
         if not attack_done:
             print('NONE MINION CAN ATTACK')
 
@@ -45,73 +51,102 @@ class ControllingAgent(Agent):
         else:
             print('[]')
 
+        print("Cards on table:\n\t", end='')
+        if player.minions:
+            print(*player.minions, sep='\n\t')
+        else:
+            print('[]')
+
         print("<-- info <--")
 
-    # player używa wszystkie karty jakie może użyć, czyli dopóki starczy mu many
-    def use_all_possible_cards(self, player):
-        print(">>>>>>>>>>>>>>>\nPlayer hand: ",player.hand)
-        possible_cards_to_use = [ (card, card.mana) for card in player.hand if (card.can_use(player, player.game))]
-        #print("Possible cards to use: ", possible_cards_to_use)
-        possible_cards_to_use_sorted = self.Sort(possible_cards_to_use)
-        print("Possible cards to use (sorted by mana): ", possible_cards_to_use_sorted)
+    def play_all_possible_cards_from_hand(self, player):
+        '''
+        Takes all cards from :param player:'s hand and decides which cards should be played together (maximizing used mana)
+        :return:
+        '''
 
-        # for card_tuple in possible_cards_to_use_sorted:
-        #     card = card_tuple[0]
-        #     if card.can_use(player, player.game):
-        #         print(card)
-        #         player.game.play_card(card)
-
-        # print(type(card[0]) for card in possible_cards_to_use_sorted)
-        # print(type(card) for card in player.hand)
-
-        cards_fin = False
-        for card_tuple in possible_cards_to_use_sorted: #player.hand:
-            if not cards_fin:
-                print(">>> next")
-                print(card_tuple)
-                card = card_tuple[0]
-                if card.can_use(player, player.game):
-                    player.game.play_card(card)
-                    print("USING CARD FROM HAND:\n\t", card)
-            else:
-                cards_fin = True
-                break
-
-                print("<<< fin")
+        # choose cards that can be played
+        print(">>>>>>>>>>>>>>> PLAYING CARDS FROM HAND >>>>>>>>>>>>>>>")
+        possible_cards_to_use = [ card for card in player.hand if (card.can_use(player, player.game))]
+        print(">>> Possible cards to use: ", possible_cards_to_use)
 
 
+        # create a list of possible moves (based on mana points)
+        all_possible_moves = []
+        for j in range(len(possible_cards_to_use)):
+            possible_move = []
+            mana_left = player.mana
+            for i in range(j, len(possible_cards_to_use)):
+                card = possible_cards_to_use[i]
+                if mana_left > 0 and card.mana <= mana_left:
+                    possible_move.append(card)
+                    mana_left -= card.mana
+            tuple = (possible_move, mana_left)
+            all_possible_moves.append(tuple)
 
-    def Sort(self, sub_li):
+        # sort possible moves by used points of mana
+        all_possible_moves_sorted_by_mana_left_after_move = sorted(all_possible_moves, key=lambda tuple: tuple[1])
 
-        # reverse = None (Sorts in Ascending order)
-        # key is set to sort using second element of
-        # sublist lambda has been used
-        sub_li.sort(key=lambda x: x[1])
-        return sub_li
+        # print nicely
+        print(">>> Possible moves to make (cards, mana_left_aftre_move): ", end=' ')
+        if all_possible_moves_sorted_by_mana_left_after_move:
+            print("\n>>>    ", end='')
+            print(*all_possible_moves_sorted_by_mana_left_after_move, sep='\n>>>    ')
+        else:
+            print("[]")
 
-        # player używa power swojego hero
+        # choose best cards to be played
+        cards_to_use = all_possible_moves_sorted_by_mana_left_after_move[0][0] if all_possible_moves_sorted_by_mana_left_after_move else []
+        for card in cards_to_use:
+            if card.can_use(player, player.game):
+                player.game.play_card(card)
+                print(">>> Using card from hand:\n>>>    ", card)
+        print("<<<<<<<<<<<<<<< PLAYING CARDS FROM HAND <<<<<<<<<<<<<<<")
+
     def use_hero_power(self, player):
+        '''
+
+        :param player:
+        :return:
+        '''
         if player.hero.power.can_use():
             player.hero.power.use()
 
     def do_turn(self, player):
-        print("\nSTART TURN OF", player)
+        '''
+
+        :param player:
+        :return:
+        '''
+        print("\nSTART A TURN OF CONTROLLING AGENT", player)
         self.print_info_about_turn(player)
 
-        self.use_all_possible_cards(player)
-        self.attack_with_all_possible_minions(player)
+        self.play_all_possible_cards_from_hand(player)
+
+        self.attack_opponents_minions_with_my_own_minions(player)
         self.attack_with_hero(player)
         self.use_hero_power(player)
         print("END TURN OF",player,"\n")
 
     def choose_target(self, targets):
-        print("CHOOSING TARGET FROM LIST:\n\t", end='')
-        print(*targets, sep='\n\t')
+        '''
 
-        chose_target = targets[0]
+        :param targets:
+        :return:
+        '''
 
-        print("CHOSE TARGET:\n\t", chose_target)
-        return chose_target
+        print("--- CHOOSING TARGET ---\n--- Choosing target from list:\n---    ", end='')
+        print(*targets, sep='\n---    ')
+
+        # >>> ERROR: sometimes both heros are in targets list, making it possible for minion to attack its owner
+        if len(targets)>=2 and type(targets[-2])==type(targets[-1]):
+            print('='*10, " ERROR ", '='*10, "TYPES", '='*10 ,type(targets[-2]), type(targets[-1]))
+        # <<< ERROR
+
+        target_chosen = targets[0]
+        print("--- CHOSEN TARGET:\n---    ", target_chosen)
+
+        return target_chosen
 
     def choose_index(self, card, player):
         return 0

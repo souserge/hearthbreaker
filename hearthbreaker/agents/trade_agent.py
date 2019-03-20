@@ -59,6 +59,7 @@ class ChooseTargetMixin:
 
             if is_friendly == get_friendly:
                 res.append(target)
+                print("trade_agent.py -> ChooseTargetMixin -> prune_targets")
 
         return res
 
@@ -91,6 +92,7 @@ class ChooseTargetMixin:
     def choose_target(self, targets):
         res = self.choose_target_inner(targets)
         # print("Target {}".format(res))
+        print("trade_agent.py -> ChooseTargetMixin -> choose_target")
         return res
 
 
