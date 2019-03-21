@@ -101,7 +101,7 @@ class ControllingAgent(Agent):
             if card.can_use(player, player.game):
                 player.game.play_card(card)
                 print(">>> Using card from hand:\n>>>    ", card)
-        print("<<<<<<<<<<<<<<< PLAYING CARDS FROM HAND <<<<<<<<<<<<<<<")
+        print("<<<<<<<<<<<<<<< END OF PLAYING CARDS FROM HAND <<<<<<<<<<<<<<<")
 
     def use_hero_power(self, player):
         '''
@@ -126,7 +126,7 @@ class ControllingAgent(Agent):
         self.attack_opponents_minions_with_my_own_minions(player)
         self.attack_with_hero(player)
         self.use_hero_power(player)
-        print("END TURN OF",player,"\n")
+        print("END TURN OF CONTROLLING AGENT",player,"\n")
 
     def choose_target(self, targets):
         '''

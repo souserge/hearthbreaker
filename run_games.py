@@ -65,7 +65,7 @@ def do_stuff():
     game = Game([deck1, deck2], [AggressiveAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [ControllingAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [TalkativeAgent(), RandomAgent()])
-    game = Game([deck1, deck2], [RandomAgent(), RandomAgent()])
+    # game = Game([deck1, deck2], [RandomAgent(), RandomAgent()])
     print(timeit.timeit(play_game, 'gc.enable()', number=1))
 
 
