@@ -7,6 +7,11 @@ import hearthbreaker.tags
 from hearthbreaker.tags.base import Effect, AuraUntil
 import hearthbreaker.targeting
 
+from hearthbreaker.agents.basic_agents import RandomAgent
+from hearthbreaker.agents.test_agent import TalkativeAgent
+from hearthbreaker.agents.aggressive_agent import AggressiveAgent
+from hearthbreaker.agents.controlling_agent import ControllingAgent
+
 
 card_table = {}
 
@@ -50,11 +55,16 @@ class Game(Bindable):
     def __init__(self, decks, agents):
         super().__init__()
         self.delayed_minions = set()
-        self.first_player = self._generate_random_between(0, 1)
-        if self.first_player is 0:
-            play_order = [0, 1]
-        else:
-            play_order = [1, 0]
+
+        # self.first_player = self._generate_random_between(0, 1)
+        # if self.first_player is 0:
+        #     play_order = [0, 1]
+        # else:
+        #     play_order = [1, 0]
+
+        # Zawsze zaczyna gracz pierwszy
+        play_order = [0, 1]
+
         self.players = [Player("one", decks[play_order[0]], agents[play_order[0]], self),
                         Player("two", decks[play_order[1]], agents[play_order[1]], self)]
         self.current_player = self.players[0]
@@ -126,15 +136,37 @@ class Game(Bindable):
         for card in self.players[1].hand:
             card.attach(card, self.players[1])
 
-        coin = card_lookup("The Coin")
-        coin.player = self.players[1]
-        self.players[1].hand.append(coin)
+        # coin = card_lookup("The Coin")
+        # coin.player = self.players[1]
+        # self.players[1].hand.append(coin)
 
     def start(self):
         self.pre_game()
         self.current_player = self.players[1]
+        changed_agent = False
         while not self.game_ended:
+            print("\nturn:",self._turns_passed)
             self.play_single_turn()
+
+            # # Proba zmiany rodzaju agenta po 10 rundzie - dziala ok
+            # if self._turns_passed>10 and not changed_agent:
+            #     print("... changing agent from:", type(self.players[0].agent),"to: ", end='')
+            #     changed_agent = True
+            #     self.players[0].change_agent(RandomAgent())
+            #     print(type(self.players[0].agent), "...")
+
+        winner = self.players[1] if self.players[0].hero.dead else self.players[0]
+
+        # print()
+        # print("# "*27, " GAME OVER ", " #"*27)
+        # print(self.players[0],"has", self.players[0].hero.health, "life points,\t", end='')
+        # print(self.players[1], "has", self.players[1].hero.health, "life points")
+        # print(winner, 'won the game (', winner.agent, ')')
+        # print("# "*61, "\n")
+
+        return winner
+
+
 
     def play_single_turn(self):
         self._start_turn()
@@ -236,7 +268,11 @@ class Game(Bindable):
             raise GameException("The game has ended")
         if not card.can_use(self.current_player, self):
             raise GameException("That card cannot be used")
+
+        # print("PLAYER HAND: ", self.current_player.hand)
+        # print("PLAYER CARD: ", card)
         card_index = self.current_player.hand.index(card)
+
         self.current_player.hand.pop(card_index)
         self.current_player.mana -= card.mana_cost()
         self._all_cards_played.append(card)
@@ -471,6 +507,9 @@ class Player(Bindable):
     def choose_target(self, targets):
         return self.agent.choose_target(targets)
 
+    def change_agent(self, agent):
+        self.agent = agent
+
     def is_valid(self):
         return True
 
@@ -538,13 +577,13 @@ class Player(Bindable):
 
 class Deck:
     def __init__(self, cards, hero):
-        if len(cards) != 30:
-            raise GameException("Deck must have exactly 30 cards in it")
+        if len(cards) != 20:
+            raise GameException("Deck must have exactly 20 cards in it")
         self.cards = cards
         self.hero = hero
         for card in cards:
             card.drawn = False
-        self.left = 30
+        self.left = 20
 
     def copy(self):
         def copy_card(card):
@@ -562,7 +601,7 @@ class Deck:
 
     def draw(self, game):
         if not self.can_draw():
-            raise GameException("Cannot draw more than 30 cards")
+            raise GameException("Cannot draw more than 20 cards")
         card = game.random_draw(self.cards, lambda c: not c.drawn)
         card.drawn = True
         self.left -= 1
@@ -595,7 +634,7 @@ class Deck:
     def __from__to_json__(cls, dd, hero):
         cards = []
         used = []
-        left = 30
+        left = 20
         for entry in dd:
             card = card_lookup(entry["name"])
             card.drawn = entry["used"]

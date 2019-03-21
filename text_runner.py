@@ -26,7 +26,7 @@ def load_deck(filename):
                     character_class = card.character_class
                 cards.append(card)
 
-    if len(cards) > 30:
+    if len(cards) > 20:
         pass
 
     return Deck(cards, hero_for_class(character_class))

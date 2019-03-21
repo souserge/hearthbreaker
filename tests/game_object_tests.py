@@ -21,7 +21,7 @@ class TestGame(unittest.TestCase):
         card_set2 = []
         test_env = self
 
-        for cardIndex in range(0, 30):
+        for cardIndex in range(0, 20):
             card_set1.append(card_lookup("Stonetusk Boar"))
             card_set2.append(card_lookup("Novice Engineer"))
 
@@ -68,7 +68,7 @@ class TestGame(unittest.TestCase):
         card_set1 = []
         card_set2 = []
 
-        for cardIndex in range(0, 30):
+        for cardIndex in range(0, 20):
             card_set1.append(card_lookup("Stonetusk Boar"))
             card_set2.append(card_lookup("Novice Engineer"))
 

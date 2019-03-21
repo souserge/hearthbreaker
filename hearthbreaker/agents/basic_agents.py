@@ -96,12 +96,41 @@ class RandomAgent(DoNothingAgent):
     def do_card_check(self, cards):
         return [True, True, True, True]
 
+    def print_info_about_turn(self, player):
+        print("--> info -->")
+        print("My hero's health:", player.hero.health)
+        print("Opponent's health:", player.game.other_player.hero.health)
+        print("My current mana:", player.mana)
+
+        print("Cards on hand:\n\t", end='')
+        if player.hand:
+            cards_details = [str(card.name) + " (" + str(card.mana) + " mana)" for card in player.hand]
+            print(*cards_details, sep='\n\t')
+        else:
+            print('[]')
+
+        print("Cards on table:\n\t", end='')
+        if player.minions:
+            print(*player.minions, sep='\n\t')
+        else:
+            print('[]')
+
+        print("<-- info <--")
+
     def do_turn(self, player):
+        print("\nSTART A TURN OF RANDOM AGENT", player)
+        self.print_info_about_turn(player)
         while True:
             attack_minions = [minion for minion in filter(lambda minion: minion.can_attack(), player.minions)]
             if player.hero.can_attack():
                 attack_minions.append(player.hero)
-            playable_cards = [card for card in filter(lambda card: card.can_use(player, player.game), player.hand)]
+            playable_cards = [card for card in filter(lambda card: card.can_use(player, player.game) and card.mana<=player.mana, player.hand)]
+
+            print(">>> PLAYING CARDS FROM HAND >>>")
+            # possible_cards_to_use = [card for card in player.hand if (card.can_use(player, player.game))]
+            print(">>> Possible cards to use: ", playable_cards)
+
+
             if player.hero.power.can_use():
                 possible_actions = len(attack_minions) + len(playable_cards) + 1
             else:
@@ -113,12 +142,20 @@ class RandomAgent(DoNothingAgent):
                 elif action < len(attack_minions):
                     attack_minions[action].attack()
                 else:
-                    player.game.play_card(playable_cards[action - len(attack_minions)])
+                    card_to_be_played = playable_cards[action - len(attack_minions)]
+                    player.game.play_card(card_to_be_played)
+                    print(">>> Using card from hand:\n>>>    ", card_to_be_played)
+                    print("<<< PLAYING CARDS FROM HAND <<<")
             else:
+                print("<<< PLAYING CARDS FROM HAND <<<")
                 return
 
     def choose_target(self, targets):
-        return targets[random.randint(0, len(targets) - 1)]
+        print("--- CHOOSING TARGET ---\n--- Choosing target from list:\n---    ", end='')
+        print(*targets, sep='\n---    ')
+        target_chosen = targets[random.randint(0, len(targets) - 1)]
+        print("--- Chosen target:\n---   ", target_chosen)
+        return target_chosen
 
     def choose_index(self, card, player):
         return random.randint(0, len(player.minions))

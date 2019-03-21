@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04d26fac-3d7e-46f4-bab5-1d9fd2a59775" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" afterPath="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" />
+      <change beforePath="$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py" afterPath="$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py" />
+      <change beforePath="$PROJECT_DIR$/hearthbreaker/agents/trade_agent.py" afterPath="$PROJECT_DIR$/hearthbreaker/agents/trade_agent.py" />
       <change beforePath="$PROJECT_DIR$/hearthbreaker/cards/base.py" afterPath="$PROJECT_DIR$/hearthbreaker/cards/base.py" />
       <change beforePath="$PROJECT_DIR$/hearthbreaker/engine.py" afterPath="$PROJECT_DIR$/hearthbreaker/engine.py" />
       <change beforePath="$PROJECT_DIR$/hearthbreaker/game_objects.py" afterPath="$PROJECT_DIR$/hearthbreaker/game_objects.py" />
+      <change beforePath="$PROJECT_DIR$/hearthbreaker/tags/selector.py" afterPath="$PROJECT_DIR$/hearthbreaker/tags/selector.py" />
+      <change beforePath="$PROJECT_DIR$/mage.hsdeck" afterPath="$PROJECT_DIR$/mage.hsdeck" />
+      <change beforePath="$PROJECT_DIR$/mage2.hsdeck" afterPath="$PROJECT_DIR$/mage2.hsdeck" />
       <change beforePath="$PROJECT_DIR$/run_games.py" afterPath="$PROJECT_DIR$/run_games.py" />
+      <change beforePath="$PROJECT_DIR$/tests/game_object_tests.py" afterPath="$PROJECT_DIR$/tests/game_object_tests.py" />
+      <change beforePath="$PROJECT_DIR$/text_runner.py" afterPath="$PROJECT_DIR$/text_runner.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,51 +24,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/hearthbreaker$run_games.coverage" NAME="run_games Coverage Results" MODIFIED="1552646187201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hearthbreaker$run_games.coverage" NAME="run_games Coverage Results" MODIFIED="1553105393108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hearthbreaker_nasze$run_games.coverage" NAME="run_games Coverage Results" MODIFIED="1553119548136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="aggressive_agent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="888">
-              <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+            <state relative-caret-position="0">
+              <caret line="70" column="22" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controlling_agent.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controlling_agent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="59" column="27" lean-forward="true" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+            <state relative-caret-position="497">
+              <caret line="103" column="72" lean-forward="true" selection-start-line="102" selection-start-column="16" selection-end-line="103" selection-end-column="72" />
               <folding>
-                <marker date="1552646187187" expanded="true" signature="2540:2970" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trade_agent_tests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/agents/trade_agent_tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="basic_agents.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="936">
-              <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1553116013812" expanded="true" signature="84:2072" ph="..." />
+                <marker date="1553116013812" expanded="true" signature="1420:2041" ph="..." />
+                <marker date="1553116013812" expanded="true" signature="2338:4030" ph="..." />
+                <marker date="1553116013812" expanded="true" signature="2338:4031" ph="..." />
+                <marker date="1553116013812" expanded="true" signature="4761:5375" ph="..." />
               </folding>
             </state>
           </provider>
@@ -71,9 +58,24 @@
       <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3840">
-              <caret line="164" column="26" lean-forward="false" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="244">
+              <caret line="229" column="11" lean-forward="false" selection-start-line="229" selection-start-column="11" selection-end-line="229" selection-end-column="11" />
+              <folding>
+                <element signature="e#4481#4690#0" expanded="false" />
+                <element signature="e#4737#5142#0" expanded="false" />
+                <element signature="e#5177#6422#0" expanded="false" />
+                <element signature="e#6465#6985#0" expanded="false" />
+                <element signature="e#7032#7043#0" expanded="false" />
+                <element signature="e#7080#7164#0" expanded="false" />
+                <element signature="e#7846#8238#1" expanded="false" />
+                <element signature="e#8509#10997#0" expanded="false" />
+                <element signature="e#11541#12693#1" expanded="false" />
+                <element signature="e#14555#15967#0" expanded="false" />
+                <element signature="e#16038#16774#0" expanded="false" />
+                <element signature="e#16822#16834#0" expanded="false" />
+                <element signature="e#16883#16894#0" expanded="false" />
+                <marker date="1553105125805" expanded="true" signature="7383:7555" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,28 +83,22 @@
       <file leaf-file-name="game_objects.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hearthbreaker/game_objects.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="1013" column="57" lean-forward="false" selection-start-line="1013" selection-start-column="57" selection-end-line="1013" selection-end-column="57" />
-              <folding />
+            <state relative-caret-position="1479">
+              <caret line="1157" column="0" lean-forward="false" selection-start-line="1155" selection-start-column="8" selection-end-line="1155" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1553105910499" expanded="true" signature="16078:16247" ph="..." />
+                <marker date="1553105910499" expanded="true" signature="44768:44792" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="abc.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python37/Lib/abc.py">
+      <file leaf-file-name="trade_agent.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/trade_agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3312">
-              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="neutral_tests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/card_tests/neutral_tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11808">
-              <caret line="503" column="59" lean-forward="false" selection-start-line="503" selection-start-column="59" selection-end-line="503" selection-end-column="59" />
+            <state relative-caret-position="384">
+              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,23 +107,61 @@
       <file leaf-file-name="run_games.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run_games.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="55" column="13" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+            <state relative-caret-position="367">
+              <caret line="68" column="32" lean-forward="false" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+                <marker date="1553119468238" expanded="true" signature="1134:2425" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="engine.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="card_defs.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/card_defs.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="7672" column="7" lean-forward="true" selection-start-line="7672" selection-start-column="7" selection-end-line="7672" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basic_agents.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="132" column="0" lean-forward="true" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1553117962718" expanded="true" signature="4099:4562" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="engine.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1195">
-              <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+            <state relative-caret-position="212">
+              <caret line="651" column="0" lean-forward="true" selection-start-line="651" selection-start-column="0" selection-end-line="651" selection-end-column="0" />
               <folding>
-                <marker date="1552645759243" expanded="true" signature="5543:5668" ph="..." />
+                <element signature="e#0#11#0" expanded="true" />
+                <marker date="1553119468214" expanded="true" signature="5089:5638" ph="..." />
+                <marker date="1553119468214" expanded="true" signature="5089:6089" ph="..." />
+                <marker date="1553119468214" expanded="true" signature="6797:6922" ph="..." />
+                <marker date="1553119468214" expanded="true" signature="10452:10539" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/tags/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="532" column="0" lean-forward="false" selection-start-line="532" selection-start-column="0" selection-end-line="532" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,36 +177,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>game_ended</find>
-      <find>.die(</find>
-      <find>random</find>
-      <find>d:</find>
-      <find>costs:</find>
-      <find>str</find>
-      <find>class</find>
-      <find>class car</find>
-      <find>hand</find>
-      <find>die(</find>
-      <find>Bloodfen Raptor</find>
-      <find>check_opponent_life</find>
-      <find>&gt;&gt;&gt;Sta</find>
-      <find>__repr</find>
-      <find>Minion:</find>
-      <find>class hero</find>
-      <find>class card</find>
-      <find>load_deck</find>
-      <find>game_ov</find>
-      <find>minion:</find>
-      <find>stat</find>
-      <find>class target</find>
+      <find>self.agent</find>
+      <find>choos</find>
+      <find>self.players[1].hero.dead</find>
       <find>choose_target</find>
-      <find>lambda</find>
-      <find>targets =</find>
-      <find>at index</find>
-      <find>card</find>
-      <find>cards</find>
       <find>game_over</find>
-      <find>use_all_possible_cards</find>
+      <find>game_ended</find>
+      <find>play_game</find>
+      <find>s hero: 30</find>
+      <find>start(</find>
+      <find>change_ag</find>
+      <find>change_age</find>
+      <find>aggre</find>
+      <find>kasz</find>
+      <find>kaszank</find>
+      <find>chang</find>
+      <find>player hand</find>
+      <find>Choosing target from list:</find>
+      <find>My hero's health</find>
+      <find>die</find>
+      <find>Cards on hand</find>
+      <find>&quot;--</find>
+      <find>Cards on table:</find>
+      <find>CHOSE TARGET:</find>
+      <find>Possible cards to use</find>
+      <find>Hero: Jaina Proudmoore</find>
+      <find>Bloodfen Raptor</find>
+      <find>boulder</find>
+      <find>playable_cards</find>
+      <find>30</find>
+      <find>change</find>
     </findStrings>
     <dirStrings>
       <dir>D:\studia\___cos\hearthbreaker</dir>
@@ -185,13 +219,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/hearthbreaker/agents/trade/controlling_agent.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/cards/minions/neutral.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/tags/selector.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/agents/trade_agent.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/cards/spells/__init__.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/cards/minions/warrior.py" />
         <option value="$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py" />
-        <option value="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" />
-        <option value="$PROJECT_DIR$/run_games.py" />
         <option value="$PROJECT_DIR$/hearthbreaker/cards/base.py" />
         <option value="$PROJECT_DIR$/hearthbreaker/game_objects.py" />
         <option value="$PROJECT_DIR$/hearthbreaker/engine.py" />
         <option value="$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" />
+        <option value="$PROJECT_DIR$/run_games.py" />
       </list>
     </option>
   </component>
@@ -225,73 +264,31 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker_nasze" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker_nasze" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker_nasze" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker_nasze" type="462c0819:PsiDirectoryNode" />
               <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="agents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="cards" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="cards" type="462c0819:PsiDirectoryNode" />
-              <item name="minions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="serialization" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="tags" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="agents" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="project.scopes" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hearthbreaker_original" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -364,21 +361,21 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3878453" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44530386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35911602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15520833" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5226519" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51823205" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -392,15 +389,214 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py</url>
-          <line>34</line>
+          <url>file://$PROJECT_DIR$/hearthbreaker/agents/trade_agent.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/agents/trade_agent.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/agents/trade_agent.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/tags/selector.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/cards/spells/druid.py</url>
+          <line>303</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/engine.py</url>
+          <line>281</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/tags/action.py</url>
+          <line>622</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/tags/action.py</url>
+          <line>336</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/tags/action.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/tags/base.py</url>
+          <line>532</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/tags/card_source.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/tags/selector.py</url>
+          <line>344</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py</url>
+          <line>142</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="32" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="self.events" />
+        <watch expression="__py_debug_temp_var_569949170" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+          <folding>
+            <marker date="1553116013812" expanded="true" signature="84:2072" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="1420:2041" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="2338:4030" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="2338:4031" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="4761:5375" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/agents/trade_agent_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1553117962718" expanded="true" signature="4099:4562" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3840">
+          <caret line="164" column="26" lean-forward="false" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
+          <folding>
+            <element signature="e#4481#4690#0" expanded="false" />
+            <element signature="e#4737#5142#0" expanded="false" />
+            <element signature="e#5177#6422#0" expanded="false" />
+            <element signature="e#6465#6985#0" expanded="false" />
+            <element signature="e#7032#7043#0" expanded="false" />
+            <element signature="e#7080#7164#0" expanded="false" />
+            <element signature="e#7846#8238#1" expanded="false" />
+            <element signature="e#8509#10997#0" expanded="false" />
+            <element signature="e#11541#12693#1" expanded="false" />
+            <element signature="e#14555#15967#0" expanded="false" />
+            <element signature="e#16038#16774#0" expanded="false" />
+            <element signature="e#16822#16834#0" expanded="false" />
+            <element signature="e#16883#16894#0" expanded="false" />
+            <marker date="1553105125805" expanded="true" signature="7383:7555" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/game_objects.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24072">
+          <caret line="1013" column="57" lean-forward="false" selection-start-line="1013" selection-start-column="57" selection-end-line="1013" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1553105910499" expanded="true" signature="16078:16247" ph="..." />
+            <marker date="1553105910499" expanded="true" signature="44768:44792" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3312">
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/card_tests/neutral_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12072">
+          <caret line="503" column="59" lean-forward="false" selection-start-line="503" selection-start-column="59" selection-end-line="503" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1104">
+          <caret line="55" column="13" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1553119468238" expanded="true" signature="1134:2425" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5424">
+          <caret line="233" column="17" lean-forward="false" selection-start-line="233" selection-start-column="8" selection-end-line="233" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1553119468214" expanded="true" signature="5089:5638" ph="..." />
+            <marker date="1553119468214" expanded="true" signature="5089:6089" ph="..." />
+            <marker date="1553119468214" expanded="true" signature="6797:6922" ph="..." />
+            <marker date="1553119468214" expanded="true" signature="10452:10539" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1776">
+          <caret line="74" column="60" lean-forward="true" selection-start-line="74" selection-start-column="60" selection-end-line="74" selection-end-column="60" />
+          <folding>
+            <marker date="1553116013812" expanded="true" signature="84:2072" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="1420:2041" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="2338:4030" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="2338:4031" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="4761:5375" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="888">
@@ -414,7 +610,7 @@
         <state relative-caret-position="840">
           <caret line="39" column="30" lean-forward="true" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -425,6 +621,7 @@
           <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+            <marker date="1553117962718" expanded="true" signature="4099:4562" ph="..." />
           </folding>
         </state>
       </provider>
@@ -433,7 +630,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3840">
           <caret line="164" column="26" lean-forward="false" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="e#4481#4690#0" expanded="false" />
+            <element signature="e#4737#5142#0" expanded="false" />
+            <element signature="e#5177#6422#0" expanded="false" />
+            <element signature="e#6465#6985#0" expanded="false" />
+            <element signature="e#7032#7043#0" expanded="false" />
+            <element signature="e#7080#7164#0" expanded="false" />
+            <element signature="e#7846#8238#1" expanded="false" />
+            <element signature="e#8509#10997#0" expanded="false" />
+            <element signature="e#11541#12693#1" expanded="false" />
+            <element signature="e#14555#15967#0" expanded="false" />
+            <element signature="e#16038#16774#0" expanded="false" />
+            <element signature="e#16822#16834#0" expanded="false" />
+            <element signature="e#16883#16894#0" expanded="false" />
+            <marker date="1553105125805" expanded="true" signature="7383:7555" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -441,7 +653,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27312">
           <caret line="1148" column="28" lean-forward="true" selection-start-line="1148" selection-start-column="28" selection-end-line="1148" selection-end-column="28" />
-          <folding />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1553105910499" expanded="true" signature="16078:16247" ph="..." />
+            <marker date="1553105910499" expanded="true" signature="44768:44792" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -467,6 +683,7 @@
           <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+            <marker date="1553119468238" expanded="true" signature="1134:2425" ph="..." />
           </folding>
         </state>
       </provider>
@@ -476,7 +693,11 @@
         <state relative-caret-position="8256">
           <caret line="351" column="29" lean-forward="false" selection-start-line="351" selection-start-column="29" selection-end-line="361" selection-end-column="81" />
           <folding>
-            <marker date="1552645759243" expanded="true" signature="5543:5668" ph="..." />
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1553119468214" expanded="true" signature="5089:5638" ph="..." />
+            <marker date="1553119468214" expanded="true" signature="5089:6089" ph="..." />
+            <marker date="1553119468214" expanded="true" signature="6797:6922" ph="..." />
+            <marker date="1553119468214" expanded="true" signature="10452:10539" ph="..." />
           </folding>
         </state>
       </provider>
@@ -486,7 +707,11 @@
         <state relative-caret-position="1512">
           <caret line="63" column="40" lean-forward="true" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
           <folding>
-            <marker date="1552646187187" expanded="true" signature="2540:2970" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="84:2072" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="1420:2041" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="2338:4030" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="2338:4031" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="4761:5375" ph="..." />
           </folding>
         </state>
       </provider>
@@ -503,27 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-968">
           <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -532,16 +736,8 @@
         <state relative-caret-position="840">
           <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files/Python37/Lib/abc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3312">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -553,48 +749,245 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/minions/hunter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/card_tests/mage_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="375" column="45" lean-forward="false" selection-start-line="375" selection-start-column="32" selection-end-line="375" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/minions/neutral.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="1648" column="43" lean-forward="true" selection-start-line="1648" selection-start-column="43" selection-end-line="1648" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/trade/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/tags/selector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="97" column="8" lean-forward="true" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+          <folding>
+            <marker date="1553088368886" expanded="true" signature="10381:10513" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/spells/druid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="307" column="0" lean-forward="true" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/minions/druid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/spells/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5520">
+          <caret line="230" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#199#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/minions/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="396" column="0" lean-forward="false" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/minions/warrior.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#59#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/timeit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5472">
+          <caret line="231" column="0" lean-forward="false" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/aggressive_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="70" column="22" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3840">
-          <caret line="164" column="26" lean-forward="false" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
+        <state relative-caret-position="244">
+          <caret line="229" column="11" lean-forward="false" selection-start-line="229" selection-start-column="11" selection-end-line="229" selection-end-column="11" />
+          <folding>
+            <element signature="e#4481#4690#0" expanded="false" />
+            <element signature="e#4737#5142#0" expanded="false" />
+            <element signature="e#5177#6422#0" expanded="false" />
+            <element signature="e#6465#6985#0" expanded="false" />
+            <element signature="e#7032#7043#0" expanded="false" />
+            <element signature="e#7080#7164#0" expanded="false" />
+            <element signature="e#7846#8238#1" expanded="false" />
+            <element signature="e#8509#10997#0" expanded="false" />
+            <element signature="e#11541#12693#1" expanded="false" />
+            <element signature="e#14555#15967#0" expanded="false" />
+            <element signature="e#16038#16774#0" expanded="false" />
+            <element signature="e#16822#16834#0" expanded="false" />
+            <element signature="e#16883#16894#0" expanded="false" />
+            <marker date="1553105125805" expanded="true" signature="7383:7555" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/game_object_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/trade_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hearthbreaker/game_objects.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="1013" column="57" lean-forward="false" selection-start-line="1013" selection-start-column="57" selection-end-line="1013" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_games.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="55" column="13" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+        <state relative-caret-position="1479">
+          <caret line="1157" column="0" lean-forward="false" selection-start-line="1155" selection-start-column="8" selection-end-line="1155" selection-end-column="11" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1195">
-          <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-          <folding>
-            <marker date="1552645759243" expanded="true" signature="5543:5668" ph="..." />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1553105910499" expanded="true" signature="16078:16247" ph="..." />
+            <marker date="1553105910499" expanded="true" signature="44768:44792" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="59" column="27" lean-forward="true" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+        <state relative-caret-position="497">
+          <caret line="103" column="72" lean-forward="true" selection-start-line="102" selection-start-column="16" selection-end-line="103" selection-end-column="72" />
           <folding>
-            <marker date="1552646187187" expanded="true" signature="2540:2970" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="84:2072" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="1420:2041" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="2338:4030" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="2338:4031" ph="..." />
+            <marker date="1553116013812" expanded="true" signature="4761:5375" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="132" column="0" lean-forward="true" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1553117962718" expanded="true" signature="4099:4562" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="68" column="32" lean-forward="false" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1553119468238" expanded="true" signature="1134:2425" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/card_defs.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="7672" column="7" lean-forward="true" selection-start-line="7672" selection-start-column="7" selection-end-line="7672" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/tags/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="532" column="0" lean-forward="false" selection-start-line="532" selection-start-column="0" selection-end-line="532" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="651" column="0" lean-forward="true" selection-start-line="651" selection-start-column="0" selection-end-line="651" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1553119468214" expanded="true" signature="5089:5638" ph="..." />
+            <marker date="1553119468214" expanded="true" signature="5089:6089" ph="..." />
+            <marker date="1553119468214" expanded="true" signature="6797:6922" ph="..." />
+            <marker date="1553119468214" expanded="true" signature="10452:10539" ph="..." />
           </folding>
         </state>
       </provider>

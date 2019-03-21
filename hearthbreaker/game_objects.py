@@ -9,6 +9,7 @@ from hearthbreaker.tags.selector import CurrentPlayer
 from hearthbreaker.tags.status import Stealth, ChangeAttack, ChangeHealth, SetAttack, Charge, Taunt, DivineShield, \
     Windfury, NoSpellTarget, SpellDamage, MinimumHealth, CanAttack
 import hearthbreaker.targeting
+# from hearthbreaker.game_objects import Hero
 
 
 class GameException(Exception):
@@ -440,12 +441,16 @@ class Character(Bindable, GameObject, metaclass=abc.ABCMeta):
                 found_taunt = True
             if enemy.can_be_attacked():
                 targets.append(enemy)
+            if isinstance(enemy, Hero):
+                print("=\n==\n===\n====\n===== ERROR\n====\n===\n==\n=")
+
 
         if found_taunt:
             targets = [target for target in targets if target.taunt]
         else:
             targets.append(self.player.game.other_player.hero)
 
+        # print("---\nTARGETS:", targets)
         target = self.choose_target(targets)
         self._remove_stealth()
         self.current_target = target

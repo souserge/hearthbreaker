@@ -94,7 +94,8 @@ class UserPicker(Picker):
     def pick(self, source, targets):
         if source.card.current_target:
             return [source.card.current_target]
-        filtered_targets = [target for target in filter(lambda t: t.player is source.player or not t.stealth, targets)]
+        # filtered_targets = [target for target in filter(lambda t: t.player is source.player or not t.stealth, targets)]
+        filtered_targets = [target for target in filter(lambda t: t.player is source.player, targets)]
         if len(filtered_targets) > 0:
             source.card.current_target = source.player.agent.choose_target(filtered_targets)
             return [source.card.current_target]
@@ -348,9 +349,9 @@ class CharacterSelector(Selector):
             for minion in p.minions:
                 if self.match(source, minion):
                     targets.append(minion)
-        for p in players:  # Done in this order for historical reasons.
-            if self.match(source, p.hero):
-                targets.append(p.hero)
+        # for p in players:  # Done in this order for historical reasons.
+        #     if self.match(source, p.hero):
+        #         targets.append(p.hero)
 
         return targets
 
