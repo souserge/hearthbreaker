@@ -99,6 +99,7 @@ class RandomAgent(DoNothingAgent):
     def print_info_about_turn(self, player):
         print("--> info -->")
         print("My hero's health:", player.hero.health)
+        print("My hero's card:", player.hero.card)
         print("Opponent's health:", player.game.other_player.hero.health)
         print("My current mana:", player.mana)
 
