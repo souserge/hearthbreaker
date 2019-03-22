@@ -6,7 +6,7 @@ from hearthbreaker.powers import MagePower, DruidPower, HunterPower, PaladinPowe
 
 class Malfurion(HeroCard):
     def __init__(self):
-        super().__init__("Malfurion Stormrage", CHARACTER_CLASS.DRUID, 30, DruidPower)
+        super().__init__("Malfurion Stormrage", CHARACTER_CLASS.DRUID, 20, DruidPower)
 
 
 class Rexxar(HeroCard):
@@ -16,7 +16,7 @@ class Rexxar(HeroCard):
 
 class Jaina(HeroCard):
     def __init__(self):
-        super().__init__("Jaina Proudmoore", CHARACTER_CLASS.MAGE, 30, MagePower)
+        super().__init__("Jaina Proudmoore", CHARACTER_CLASS.MAGE, 20, MagePower)
 
 
 class Uther(HeroCard):
