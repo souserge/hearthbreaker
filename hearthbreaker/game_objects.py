@@ -416,6 +416,28 @@ class Character(Bindable, GameObject, metaclass=abc.ABCMeta):
                     buff.unapply()
             self.buffs = [buff for buff in self.buffs if not isinstance(buff.status, Stealth)]
 
+    # Add function that gets all targets to attack
+
+    def get_targets(self):
+        found_taunt = False
+        targets = []
+        for enemy in self.player.game.other_player.minions:
+            if enemy.taunt and enemy.can_be_attacked():
+                found_taunt = True
+            if enemy.can_be_attacked():
+                targets.append(enemy)
+            if isinstance(enemy, Hero):
+                print("=\n==\n===\n====\n===== ERROR\n====\n===\n==\n=")
+        
+        if found_taunt:
+            targets = [target for target in targets if target.taunt]
+        else:
+            targets.append(self.player.game.other_player.hero)
+        
+        return targets
+    # -----------------------------------------
+    
+    
     def attack(self):
         """
         Causes this :class:`Character` to attack.
