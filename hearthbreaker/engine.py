@@ -144,9 +144,13 @@ class Game(Bindable):
         self.pre_game()
         self.current_player = self.players[1]
         changed_agent = False
+        game_copy = None
         while not self.game_ended:
             print("\nturn:",self._turns_passed)
+            if self._turns_passed==5:
+                game_copy = self.copy()
             self.play_single_turn()
+            
 
             # # Proba zmiany rodzaju agenta po 10 rundzie - dziala ok
             # if self._turns_passed>10 and not changed_agent:
@@ -163,6 +167,12 @@ class Game(Bindable):
         # print(self.players[1], "has", self.players[1].hero.health, "life points")
         # print(winner, 'won the game (', winner.agent, ')')
         # print("# "*61, "\n")
+        print("Continue game from 10 round")
+        while not game_copy.game_ended:
+            print("\nturn:",game_copy._turns_passed)
+            game_copy.play_single_turn()
+        winner = game_copy.players[1] if game_copy.players[0].hero.dead else game_copy.players[0]
+            
 
         return winner
 
