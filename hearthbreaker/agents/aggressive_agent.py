@@ -106,8 +106,10 @@ class AggressiveAgent(Agent):
     def choose_target(self, targets):
         print("--- CHOOSING TARGET ---\n--- Choosing target from list:\n---    ", end='')
         print(*targets, sep='\n---    ')
-
-        target_chosen = targets[-1]
+        if (len(targets)>=2):
+            target_chosen = targets[-2]
+        else:
+            target_chosen = targets[-1]
         print("--- CHOSEN TARGET:\n---    ", target_chosen)
         return target_chosen
 
