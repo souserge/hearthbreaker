@@ -3,7 +3,7 @@ from hearthbreaker.agents.basic_agents import RandomAgent
 from hearthbreaker.agents.test_agent import TalkativeAgent
 from hearthbreaker.agents.aggressive_agent import AggressiveAgent
 from hearthbreaker.agents.controlling_agent import ControllingAgent
-from hearthbreaker.cards.heroes import hero_for_class
+from hearthbreaker.cards.heroes import Jaina, Malfurion, hero_for_class
 from hearthbreaker.constants import CHARACTER_CLASS
 from hearthbreaker.engine import Game, Deck, card_lookup
 from hearthbreaker.cards import *
@@ -12,7 +12,6 @@ import timeit
 
 def load_deck(filename):
     cards = []
-    character_class = CHARACTER_CLASS.MAGE
 
     with open(filename, "r") as deck_file:
         contents = deck_file.read()
@@ -22,14 +21,12 @@ def load_deck(filename):
             count = int(parts[0])
             for i in range(0, count):
                 card = card_lookup(parts[1])
-                if card.character_class != CHARACTER_CLASS.ALL:
-                    character_class = card.character_class
                 cards.append(card)
 
     if len(cards) > 20:
         pass
 
-    return Deck(cards, hero_for_class(character_class))
+    return cards
 
 
 def do_stuff():
@@ -60,8 +57,9 @@ def do_stuff():
         if _count % 1000 == 0:
             print("---- game #{} ----".format(_count))
 
-    deck1 = load_deck("mage.hsdeck")
-    deck2 = load_deck("mage2.hsdeck")
+    cards = load_deck("mage3.hsdeck")
+    deck1 = Deck(cards, Jaina())
+    deck2 = Deck(cards, Malfurion())
     game = Game([deck1, deck2], [AggressiveAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [ControllingAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [TalkativeAgent(), RandomAgent()])
