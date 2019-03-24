@@ -35,7 +35,8 @@ class AggressiveAgent(Agent):
                 print('BEFORE ATTACK WITH MINIONS')
                 self.check_opponent_life(player)
                 print(">>> Attacking with minion:\n\tlife:", minion)
-                minion.attack()
+                # minion.attack()
+                player.game.attack_target(minion, player.game.other_player.hero)
                 attack_done = True
                 self.check_opponent_life(player)
                 print('AFTER ATTACK WITH MINIONS')

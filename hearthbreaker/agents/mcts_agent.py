@@ -3,23 +3,26 @@ from itertools import combinations
 
 def get_minions_to_use(game):
     minions_to_use = []
-    for minion in game.curr_player.minions:
+    for minion in game.current_player.minions:
         if minion.can_attack():
             minions_to_use.append(minion)
     return minions_to_use
 
-def get_inner_tree(node):
-    attack_sequences = node
-    game_sim = node.game
-    minions_use = get_minions_to_use(game_sim)
+def get_inner_tree(game):
+    attack_sequences = []
+    minions_use = get_minions_to_use(game)
     for minion in minions_use:
         targets = minion.get_targets()
-        # for all minions we can use:
-            # for all targets we can attack:
-                attack_sequences.addChild((minion, target)) 
-                # copy game
-                # attack in copy
-                # goto $THERE   
+        for target in targets:
+            attack = (minion, target)
+            attack_sequences.append([attack]) 
+            game_copy = game.copy()
+            game_copy.attack_target(minion,target)
+            a = get_inner_tree(game_copy)
+            new_a = list(map(lambda x: [attack]+x,a))
+            attack_sequences += new_a
+    
+    return attack_sequences
 
 class GameState:
     """ A state of the game, i.e. the game board. These are the only functions which are
@@ -39,14 +42,18 @@ class GameState:
         """ Update a state by carrying out the given move.
             Must update playerJustMoved.
         """
-        # game.do_move(move)
-        for step in move:
-            # apply step
-            pass
+        self.game._start_turn()
+        cc, aseq = move
+        for card in cc:
+            self.game.play_card(card)
+        
+        for attack in aseq:
+            game.attack_target(attack[0], attack[1])
 
         # end round 
+        self.game._end_turn()
+        self.playerJustMoved = self.game.current_player
 
-        self.playerJustMoved = game.other_player
         
     def GetMoves(self):
         """ Get all possible moves from this state.
@@ -60,22 +67,16 @@ class GameState:
 
         cards_combinations = list(filter(lambda xs: sum([x.mana_cost() for x in xs]) > player.mana, cards_combinations))
         
-        attack_sequences = Node()
+        # get all combinations of attacks (order matters): 
+        attack_sequences = get_inner_tree(self.game)
 
-        # $THERE
-        game_sim = self.game
-        # for all minions we can use:
-            # for all targets we can attack:
-                attack_sequences.addChild((minion, target)) 
-                # copy game
-                # attack in copy
-                # goto $THERE   
+        all_possible_moves = reduce(list.__add__, map(lambda cc: list(map(lambda aseq: (cc,aseq), attack_sequences)), cards_combinations))
+        return all_possible_moves
 
-        
-    
     def GetResult(self, playerjm):
         """ Get the game result from the viewpoint of playerjm. 
         """
+        return 0 if playerjm.hero.dead else 1
 
     def __repr__(self):
         pass
@@ -87,12 +88,7 @@ class MCTSAgent(Agent):
         for minion in curr_player.minions:
             if minion.can_attack():
                 minions_to_use.append(minion)
-        return minions_to_use
-
-    def generate_possible_moves(game):
-        player = game.current_player
-        possible_cards_to_use = [ card for card in player.hand if (card.can_use(player, player.game))]
-        get_minions_to_attack(game,player)
+        return minions_to_use        
 
     def choose_target(self, targets):
         return targets[0]
