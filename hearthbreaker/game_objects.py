@@ -437,6 +437,23 @@ class Character(Bindable, GameObject, metaclass=abc.ABCMeta):
         return targets
     # -----------------------------------------
     
+    def attack_target(self, target):
+        self.current_target = target
+        self.player.trigger("character_attack", self, self.current_target)
+        self.trigger("attack", self.current_target)
+        if self.removed or self.dead:  # removed won't be set yet if the Character died during this attack
+            return
+        target = self.current_target
+        my_attack = self.calculate_attack()  # In case the damage causes my attack to grow
+        target_attack = target.calculate_attack()
+        if target_attack > 0:
+            self.damage(target_attack, target)
+        target.damage(my_attack, self)
+        self.player.game.check_delayed()
+        self.trigger("attack_completed")
+        self.attacks_performed += 1
+        self.stealth = False
+        self.current_target = None
     
     def attack(self):
         """

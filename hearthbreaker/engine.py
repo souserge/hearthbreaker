@@ -80,6 +80,39 @@ class Game(Bindable):
         self._turns_passed = 0
         self.selected_card = None
 
+    def attack_target(self, minion, target_to_attack):
+
+        filtered_minions_attackers = list(filter(lambda x: x.index==minion.index, self.current_player.minions)) 
+        if len(filtered_minions_attackers)<1:
+            raise Exception('No minions found in game copy: {}'.format(filtered_minions_attackers))
+        attacking_minion = filtered_minions_attackers[0]
+        if target_to_attack.is_hero():
+            target_to_attack = self.other_player.hero
+        else:
+            filtered_minions_targets = list(filter(lambda x: x.index==minion.index, self.other_player.minions))
+            if len(filtered_minions_targets)<1:
+                raise Exception('No minion targets found in game copy: {}'.format(filtered_minions_targets))
+            target_to_attack = filtered_minions_targets[0]
+        
+        attacking_minion.current_target = target_to_attack
+
+        attacking_minion.player.trigger("character_attack", attacking_minion, attacking_minion.current_target)
+        attacking_minion.trigger("attack", attacking_minion.current_target)
+        if attacking_minion.removed or attacking_minion.dead:  # removed won't be set yet if the Character died during this attack
+            return
+        
+        target = attacking_minion.current_target
+        my_attack = attacking_minion.calculate_attack()  # In case the damage causes my attack to grow
+        target_attack = target.calculate_attack()
+        if target_attack > 0:
+            attacking_minion.damage(target_attack, target)
+        target.damage(my_attack, attacking_minion)
+        attacking_minion.player.game.check_delayed()
+        attacking_minion.trigger("attack_completed")
+        attacking_minion.attacks_performed += 1
+        attacking_minion.stealth = False
+        attacking_minion.current_target = None
+
     def random_draw(self, cards, requirement):
         filtered_cards = [card for card in filter(requirement, cards)]
         if len(filtered_cards) > 0:
@@ -146,9 +179,9 @@ class Game(Bindable):
         changed_agent = False
         game_copy = None
         while not self.game_ended:
-            print("\nturn:",self._turns_passed)
-            if self._turns_passed==5:
-                game_copy = self.copy()
+            # print("\nturn:",self._turns_passed)
+            # if self._turns_passed==5:
+            #     game_copy = self.copy()
             self.play_single_turn()
             
 
@@ -167,11 +200,12 @@ class Game(Bindable):
         # print(self.players[1], "has", self.players[1].hero.health, "life points")
         # print(winner, 'won the game (', winner.agent, ')')
         # print("# "*61, "\n")
-        print("Continue game from 10 round")
-        while not game_copy.game_ended:
-            print("\nturn:",game_copy._turns_passed)
-            game_copy.play_single_turn()
-        winner = game_copy.players[1] if game_copy.players[0].hero.dead else game_copy.players[0]
+        # print("Continue game from 10 round")
+        # while not game_copy.game_ended:
+        #     print("\nturn:",game_copy._turns_passed)
+        #     game_copy.play_single_turn()
+        
+        # winner = game_copy.players[1] if game_copy.players[0].hero.dead else game_copy.players[0]
             
 
         return winner
