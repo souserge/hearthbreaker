@@ -1,5 +1,5 @@
 import json
-from hearthbreaker.agents.basic_agents import RandomAgent
+from hearthbreaker.agents.basic_agents import RandomAgent, DoNothingAgent
 from hearthbreaker.agents.test_agent import TalkativeAgent
 from hearthbreaker.agents.aggressive_agent import AggressiveAgent
 from hearthbreaker.agents.controlling_agent import ControllingAgent
@@ -62,7 +62,7 @@ def do_stuff():
     cards = load_deck("mage3.hsdeck")
     deck1 = Deck(cards, Jaina())
     deck2 = Deck(cards, Malfurion())
-    game = Game([deck1, deck2], [MCTSAgent(), RandomAgent()])
+    game = Game([deck1, deck2], [MCTSAgent(500), DoNothingAgent()])
     # game = Game([deck1, deck2], [AggressiveAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [ControllingAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [TalkativeAgent(), RandomAgent()])
