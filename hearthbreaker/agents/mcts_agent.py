@@ -59,6 +59,7 @@ class GameState:
         """ Get all possible moves from this state.
         """
         player = self.game.current_player
+        cards = player.hand
         # get all combinations of cards play (order doesn't matter): 
         a = list(filter(lambda x: cards.mana_cost() < mana, cards))
         cards_combinations = []
@@ -94,9 +95,9 @@ class MCTSAgent(Agent):
         return targets[0]
 
 class Node:
-""" A node in the game tree. Note wins is always from the viewpoint of playerJustMoved.
+    """ A node in the game tree. Note wins is always from the viewpoint of playerJustMoved.
     Crashes if state not specified.
-"""
+    """
     def __init__(self, move = None, parent = None, state = None):
         self.move = move # the move that got us to this node - "None" for the root node
         self.parentNode = parent # "None" for the root node
@@ -153,57 +154,3 @@ class Node:
                 
     # zakładamy że granie kart i atakowanie minionami jest niezależne, obojetna kolejność
 
-def UCT(rootstate, itermax, verbose = False):
-
-    rootnode = Node(state = rootstate)
-
-    for i in range(itermax):
-        node = rootnode
-        state = rootstate.Clone()
-
-        # Select
-        while node.untriedMoves == [] and node.childNodes != []: # node is fully expanded and non-terminal
-            node = node.UCTSelectChild()
-            state.DoMove(node.move)
-
-        # Expand
-        if node.untriedMoves != []: # if we can expand (i.e. state/node is non-terminal)
-            m = random.choice(node.untriedMoves) 
-            state.DoMove(m)
-            node = node.AddChild(m,state) # add child and descend tree
-
-        # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
-        while state.GetMoves() != []: # while state is non-terminal
-            state.DoMove(random.choice(state.GetMoves()))
-
-        # Backpropagate
-        while node != None: # backpropagate from the expanded node and work back to the root node
-            node.Update(state.GetResult(node.playerJustMoved)) # state is terminal. Update node with result from POV of node.playerJustMoved
-            node = node.parentNode
-
-    # Output some information about the tree - can be omitted
-    if (verbose): print rootnode.TreeToString(0)
-    else: print rootnode.ChildrenToString()
-
-    return sorted(rootnode.childNodes, key = lambda c: c.visits)[-1].move # return the move that was most visited
-                
-def UCTPlayGame():
-    """ Play a sample game between two UCT players where each player gets a different number 
-        of UCT iterations (= simulations = tree nodes).
-    """
-    # state = OthelloState(4) # uncomment to play Othello on a square board of the given size
-    # state = OXOState() # uncomment to play OXO
-    state = NimState(15) # uncomment to play Nim with the given number of starting chips
-    while (state.GetMoves() != []):
-        print str(state)
-        if state.playerJustMoved == 1:
-            m = UCT(rootstate = state, itermax = 1000, verbose = False) # play with values for itermax and verbose = True
-        else:
-            m = UCT(rootstate = state, itermax = 100, verbose = False)
-        print "Best Move: " + str(m) + "\n"
-        state.DoMove(m)
-    if state.GetResult(state.playerJustMoved) == 1.0:
-        print "Player " + str(state.playerJustMoved) + " wins!"
-    elif state.GetResult(state.playerJustMoved) == 0.0:
-        print "Player " + str(3 - state.playerJustMoved) + " wins!"
-    else: print "Nobody wins!"
