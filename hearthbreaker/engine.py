@@ -80,6 +80,8 @@ class Game(Bindable):
         self._turns_passed = 0
         self.selected_card = None
 
+    # Function added for MCTS
+
     def attack_target(self, minion, target_to_attack):
 
         filtered_minions_attackers = list(filter(lambda x: x.index==minion.index, self.current_player.minions)) 

@@ -60,7 +60,7 @@ class GameState:
         """
         player = self.game.current_player
         # get all combinations of cards play (order doesn't matter): 
-        a = list(filter(lambda x: cards.mana_cost() < mana, cards))
+        a = list(filter(lambda x: cards.mana_cost() <= mana, cards))
         cards_combinations = []
         for r in range(0, len(a) + 1):
 	        cards_combinations + list(combinations(a, r))
@@ -81,6 +81,7 @@ class GameState:
     def __repr__(self):
         pass
 
+# nie wiem czy MCTSAgent bedzie potrzebny
 class MCTSAgent(Agent):
 
     def get_minions_to_use(game, curr_player):
@@ -194,6 +195,7 @@ def UCTPlayGame():
     # state = OthelloState(4) # uncomment to play Othello on a square board of the given size
     # state = OXOState() # uncomment to play OXO
     state = NimState(15) # uncomment to play Nim with the given number of starting chips
+    
     while (state.GetMoves() != []):
         print str(state)
         if state.playerJustMoved == 1:
