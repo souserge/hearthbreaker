@@ -2,6 +2,8 @@ from hearthbreaker.agents.basic_agents import DoNothingAgent
 from itertools import combinations 
 import functools
 import operator
+import random
+import math
 
 def play_move(game, move):
     game._start_turn()
@@ -65,6 +67,10 @@ class GameState:
         """ Get all possible moves from this state.
         """
         player = self.game.current_player
+        opponent = self.game.other_player
+        if player.hero.dead or opponent.hero.dead:
+            return []
+
         cards = player.hand
         # get all combinations of cards play (order doesn't matter): 
         a = list(filter(lambda x: x.mana < player.mana, cards))
@@ -72,16 +78,15 @@ class GameState:
         for r in range(0, len(a) + 1):
 	        cards_combinations + list(combinations(a, r))
 
-        cards_combinations = list(filter(lambda xs: sum([x.mana_cost() for x in xs]) > player.mana, cards_combinations))
+        cards_combinations = list(filter(lambda xs: sum([x.mana_cost() for x in xs]) > player.mana, cards_combinations)) + [[]]
         
         # get all combinations of attacks (order matters):
-        all_possible_moves=[]
-        attack_sequences = get_inner_tree(self.game)
+        attack_sequences = get_inner_tree(self.game) + [[]]
 
 
         seq = map(lambda cc: list(map(lambda aseq: (cc,aseq), attack_sequences)), cards_combinations)
+        # [[(), ()],[(), ()]] => [(), (), (), ()]
         all_possible_moves = functools.reduce(operator.add, seq, [])
-
         return all_possible_moves
 
     def GetResult(self, playerjm):
@@ -93,10 +98,14 @@ class GameState:
         pass
 
 class MCTSAgent(DoNothingAgent):
+    def __init__(self, depth=100):
+        super().__init__()
+        self.depth = depth
+
     def do_turn(self, player):
         print('---\nTurn of', player)
         state = GameState(player.game)
-        move = UCT(rootstate = state, itermax = 1000, verbose = False)
+        move = UCT(rootstate = state, itermax = self.depth, verbose = False)
         play_move(player.game,move)
 
 class Node:
@@ -117,7 +126,7 @@ class Node:
             lambda c: c.wins/c.visits + UCTK * sqrt(2*log(self.visits)/c.visits to vary the amount of
             exploration versus exploitation.
         """
-        s = sorted(self.childNodes, key = lambda c: c.wins/c.visits + sqrt(2*log(self.visits)/c.visits))[-1]
+        s = sorted(self.childNodes, key = lambda c: c.wins/c.visits + math.sqrt(2*math.log(self.visits)/c.visits))[-1]
         return s
     
     def AddChild(self, m, s):
