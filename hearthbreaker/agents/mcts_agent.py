@@ -1,5 +1,7 @@
 from hearthbreaker.agents.basic_agents import Agent
 from itertools import combinations 
+import functools
+import operator
 
 def get_minions_to_use(game):
     minions_to_use = []
@@ -60,18 +62,24 @@ class GameState:
         """
         player = self.game.current_player
         cards = player.hand
+        print(cards)
         # get all combinations of cards play (order doesn't matter): 
-        a = list(filter(lambda x: cards.mana_cost() < mana, cards))
+        a = list(filter(lambda x: x.mana < player.mana, cards))
         cards_combinations = []
         for r in range(0, len(a) + 1):
 	        cards_combinations + list(combinations(a, r))
 
         cards_combinations = list(filter(lambda xs: sum([x.mana_cost() for x in xs]) > player.mana, cards_combinations))
         
-        # get all combinations of attacks (order matters): 
+        # get all combinations of attacks (order matters):
+        all_possible_moves=[]
         attack_sequences = get_inner_tree(self.game)
 
-        all_possible_moves = reduce(list.__add__, map(lambda cc: list(map(lambda aseq: (cc,aseq), attack_sequences)), cards_combinations))
+        if cards_combinations:
+            seq = map(lambda cc: list(map(lambda aseq: (cc,aseq), attack_sequences)), cards_combinations)
+            print(cards_combinations)
+            all_possible_moves = functools.reduce(operator.add, seq)
+
         return all_possible_moves
 
     def GetResult(self, playerjm):
