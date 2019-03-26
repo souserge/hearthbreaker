@@ -1,7 +1,20 @@
-from hearthbreaker.agents.basic_agents import Agent
+from hearthbreaker.agents.basic_agents import DoNothingAgent
 from itertools import combinations 
 import functools
 import operator
+
+def play_move(game, move):
+    game._start_turn()
+    cards, attacks = move
+    for card in cards:
+        game.play_card(card)
+    
+    for (minion, target) in attacks:
+        game.attack_target(minion, target)
+
+    # end round 
+    game._end_turn()
+
 
 def get_minions_to_use(game):
     minions_to_use = []
@@ -34,8 +47,8 @@ class GameState:
         By convention the players are numbered 1 and 2.
     """
     def __init__(self, game):
-            self.game = game
-            self.playerJustMoved = game.current_player # At the root pretend the player just moved is player 2 - player 1 has the first move
+        self.game = game
+        self.playerJustMoved = game.current_player # At the root pretend the player just moved is player 2 - player 1 has the first move
         
     def Clone(self):
         return GameState(self.game.copy())
@@ -44,16 +57,7 @@ class GameState:
         """ Update a state by carrying out the given move.
             Must update playerJustMoved.
         """
-        self.game._start_turn()
-        cc, aseq = move
-        for card in cc:
-            self.game.play_card(card)
-        
-        for attack in aseq:
-            game.attack_target(attack[0], attack[1])
-
-        # end round 
-        self.game._end_turn()
+        play_move(self.game, move)
         self.playerJustMoved = self.game.current_player
 
         
@@ -62,7 +66,6 @@ class GameState:
         """
         player = self.game.current_player
         cards = player.hand
-        print(cards)
         # get all combinations of cards play (order doesn't matter): 
         a = list(filter(lambda x: x.mana < player.mana, cards))
         cards_combinations = []
@@ -75,10 +78,9 @@ class GameState:
         all_possible_moves=[]
         attack_sequences = get_inner_tree(self.game)
 
-        if cards_combinations:
-            seq = map(lambda cc: list(map(lambda aseq: (cc,aseq), attack_sequences)), cards_combinations)
-            print(cards_combinations)
-            all_possible_moves = functools.reduce(operator.add, seq)
+
+        seq = map(lambda cc: list(map(lambda aseq: (cc,aseq), attack_sequences)), cards_combinations)
+        all_possible_moves = functools.reduce(operator.add, seq, [])
 
         return all_possible_moves
 
@@ -90,17 +92,12 @@ class GameState:
     def __repr__(self):
         pass
 
-class MCTSAgent(Agent):
-
-    def get_minions_to_use(game, curr_player):
-        minions_to_use = []
-        for minion in curr_player.minions:
-            if minion.can_attack():
-                minions_to_use.append(minion)
-        return minions_to_use        
-
-    def choose_target(self, targets):
-        return targets[0]
+class MCTSAgent(DoNothingAgent):
+    def do_turn(self, player):
+        print('---\nTurn of', player)
+        state = GameState(player.game)
+        move = UCT(rootstate = state, itermax = 1000, verbose = False)
+        play_move(player.game,move)
 
 class Node:
     """ A node in the game tree. Note wins is always from the viewpoint of playerJustMoved.
@@ -158,7 +155,37 @@ class Node:
         for c in self.childNodes:
              s += str(c) + "\n"
         return s
-    
-                
-    # zakładamy że granie kart i atakowanie minionami jest niezależne, obojetna kolejność
 
+def UCT(rootstate, itermax, verbose=False):
+    rootnode = Node(state=rootstate)
+
+    for i in range(itermax):
+        node = rootnode
+        state = rootstate.Clone()
+
+        # Select
+        while node.untriedMoves == [] and node.childNodes != []:  # node is fully expanded and non-terminal
+            node = node.UCTSelectChild()
+            state.DoMove(node.move)
+
+        # Expand
+        if node.untriedMoves != []:  # if we can expand (i.e. state/node is non-terminal)
+            m = random.choice(node.untriedMoves)
+            state.DoMove(m)
+            node = node.AddChild(m, state)  # add child and descend tree
+
+        # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
+        while state.GetMoves() != []:  # while state is non-terminal
+            state.DoMove(random.choice(state.GetMoves()))
+
+        # Backpropagate
+        while node != None:  # backpropagate from the expanded node and work back to the root node
+            node.Update(state.GetResult(
+                node.playerJustMoved))  # state is terminal. Update node with result from POV of node.playerJustMoved
+            node = node.parentNode
+
+    # Output some information about the tree - can be omitted
+    if (verbose): print(rootnode.TreeToString(0))
+    else: print(rootnode.ChildrenToString())
+
+    return sorted(rootnode.childNodes, key=lambda c: c.visits)[-1].move  # return the move that was most visited

@@ -11,70 +11,16 @@ import timeit
 import functools
 from hearthbreaker.agents.mcts_agent import GameState, MCTSAgent, Node
 
-def load_deck(filename):
-    cards = []
-
-    with open(filename, "r") as deck_file:
-        contents = deck_file.read()
-        items = contents.splitlines()
-        for line in items[0:]:
-            parts = line.split(" ", 1)
-            count = int(parts[0])
-            for i in range(0, count):
-                card = card_lookup(parts[1])
-                cards.append(card)
-
-    if len(cards) > 20:
-        pass
-
-    return cards
-
-def UCT(rootstate, itermax, verbose=False):
-    rootnode = Node(state=rootstate)
-
-    for i in range(itermax):
-        node = rootnode
-        state = rootstate.Clone()
-
-        # Select
-        while node.untriedMoves == [] and node.childNodes != []:  # node is fully expanded and non-terminal
-            node = node.UCTSelectChild()
-            state.DoMove(node.move)
-
-        # Expand
-        if node.untriedMoves != []:  # if we can expand (i.e. state/node is non-terminal)
-            m = random.choice(node.untriedMoves)
-            state.DoMove(m)
-            node = node.AddChild(m, state)  # add child and descend tree
-
-        # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
-        while state.GetMoves() != []:  # while state is non-terminal
-            state.DoMove(random.choice(state.GetMoves()))
-
-        # Backpropagate
-        while node != None:  # backpropagate from the expanded node and work back to the root node
-            node.Update(state.GetResult(
-                node.playerJustMoved))  # state is terminal. Update node with result from POV of node.playerJustMoved
-            node = node.parentNode
-
-    # Output some information about the tree - can be omitted
-    if (verbose): print(rootnode.TreeToString(0))
-    else: print(rootnode.ChildrenToString())
-
-    return sorted(rootnode.childNodes, key=lambda c: c.visits)[-1].move  # return the move that was most visited
-
 
 def UCTPlayGame():
     """ Play a sample game between two UCT players where each player gets a different number
         of UCT iterations (= simulations = tree nodes).
     """
-    # state = OthelloState(4) # uncomment to play Othello on a square board of the given size
-    # state = OXOState() # uncomment to play OXO
 
     cards = load_deck("mage3.hsdeck")
     deck1 = Deck(cards, Jaina())
     deck2 = Deck(cards, Malfurion())
-    game = Game([deck1, deck2], [AggressiveAgent(), RandomAgent()])
+    game = Game([deck1, deck2], [MCTSAgent(), RandomAgent()])
     game.pre_game()
     state = GameState(game) # uncomment to play Nim with the given number of starting chips
     print(state.GetMoves())
