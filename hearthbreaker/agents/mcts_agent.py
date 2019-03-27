@@ -5,9 +5,9 @@ import operator
 import random
 import math
 
-def play_move(game, move):
+def play_move(game, chosen_move):
     game._start_turn()
-    cards, attacks = move
+    cards, attacks = chosen_move
     for card in cards:
         game.play_card(card)
     
@@ -52,18 +52,18 @@ class GameState:
         self.game = game
         self.playerJustMoved = game.current_player # At the root pretend the player just moved is player 2 - player 1 has the first move
         
-    def Clone(self):
+    def clone(self):
         return GameState(self.game.copy())
 
-    def DoMove(self, move):
-        """ Update a state by carrying out the given move.
+    def do_move(self, move):
+        """ update a state by carrying out the given move.
             Must update playerJustMoved.
         """
         play_move(self.game, move)
         self.playerJustMoved = self.game.current_player
 
         
-    def GetMoves(self):
+    def get_moves(self):
         """ Get all possible moves from this state.
         """
         player = self.game.current_player
@@ -73,10 +73,25 @@ class GameState:
 
         cards = player.hand
         # get all combinations of cards play (order doesn't matter): 
-        a = list(filter(lambda x: x.mana < player.mana, cards))
+        possible_cards_to_play = list(filter(lambda x: x.mana <= player.mana, cards))
+        print("Possible cards to play:",possible_cards_to_play)
+
         cards_combinations = []
-        for r in range(0, len(a) + 1):
-	        cards_combinations + list(combinations(a, r))
+        for r in range(len(possible_cards_to_play) + 1):
+	        cards_combinations + list(combinations(possible_cards_to_play, r))
+        print("Cards combinations:", cards_combinations)
+
+        # cards_combinations = []
+        # for j in range(len(possible_cards_to_play)):
+        #     possible_move = []
+        #     mana_left = player.mana
+        #     for i in range(j, len(possible_cards_to_play)):
+        #         card = possible_cards_to_use[i]
+        #         if mana_left > 0 and card.mana <= mana_left:
+        #             possible_move.append(card)
+        #             mana_left -= card.mana
+        #     tuple = (possible_move, mana_left)
+        #     cards_combinations.append(tuple)
 
         cards_combinations = list(filter(lambda xs: sum([x.mana_cost() for x in xs]) > player.mana, cards_combinations)) + [[]]
         
@@ -89,7 +104,7 @@ class GameState:
         all_possible_moves = functools.reduce(operator.add, seq, [])
         return all_possible_moves
 
-    def GetResult(self, playerjm):
+    def get_result(self, playerjm):
         """ Get the game result from the viewpoint of playerjm. 
         """
         return 0 if playerjm.hero.dead else 1
@@ -102,11 +117,33 @@ class MCTSAgent(DoNothingAgent):
         super().__init__()
         self.depth = depth
 
+    def print_info_about_turn(self, player):
+        print("TURN OF MCTS AGENT")
+        print("--> info -->")
+        print("My hero's health:", player.hero.health)
+        print("Opponent's health:", player.game.other_player.hero.health)
+        print("My current mana:", player.mana)
+
+        print("Cards on hand:\n\t", end='')
+        if player.hand:
+            cards_details = [str(card.name) + " (" + str(card.mana) + " mana)" for card in player.hand]
+            print(*cards_details, sep='\n\t')
+        else:
+            print('[]')
+
+        print("Cards on table:\n\t", end='')
+        if player.minions:
+            print(*player.minions, sep='\n\t')
+        else:
+            print('[]')
+
+        print("<-- info <--")
+
     def do_turn(self, player):
-        print('---\nTurn of', player)
+        self.print_info_about_turn(player)
         state = GameState(player.game)
         move = UCT(rootstate = state, itermax = self.depth, verbose = False)
-        play_move(player.game,move)
+        play_move(player.game, move)
 
 class Node:
     """ A node in the game tree. Note wins is always from the viewpoint of playerJustMoved.
@@ -118,7 +155,7 @@ class Node:
         self.childNodes = []
         self.wins = 0
         self.visits = 0
-        self.untriedMoves = state.GetMoves() # future child nodes
+        self.untriedMoves = state.get_moves() # future child nodes
         self.playerJustMoved = state.playerJustMoved # the only part of the state that the Node needs later
         
     def UCTSelectChild(self):
@@ -129,7 +166,7 @@ class Node:
         s = sorted(self.childNodes, key = lambda c: c.wins/c.visits + math.sqrt(2*math.log(self.visits)/c.visits))[-1]
         return s
     
-    def AddChild(self, m, s):
+    def add_child(self, m, s):
         """ Remove m from untriedMoves and add a new child node for this move.
             Return the added child node
         """
@@ -138,8 +175,8 @@ class Node:
         self.childNodes.append(n)
         return n
     
-    def Update(self, result):
-        """ Update this node - one additional visit and result additional wins. result must be from the viewpoint of playerJustmoved.
+    def update(self, result):
+        """ update this node - one additional visit and result additional wins. result must be from the viewpoint of playerJustmoved.
         """
         self.visits += 1
         self.wins += result
@@ -147,19 +184,19 @@ class Node:
     def __repr__(self):
         return "[M:" + str(self.move) + " W/V:" + str(self.wins) + "/" + str(self.visits) + " U:" + str(self.untriedMoves) + "]"
 
-    def TreeToString(self, indent):
-        s = self.IndentString(indent) + str(self)
+    def tree_to_string(self, indent):
+        s = self.indent_string(indent) + str(self)
         for c in self.childNodes:
-             s += c.TreeToString(indent+1)
+             s += c.tree_to_string(indent + 1)
         return s
 
-    def IndentString(self,indent):
+    def indent_string(self, indent):
         s = "\n"
         for i in range (1,indent+1):
             s += "| "
         return s
 
-    def ChildrenToString(self):
+    def children_to_string(self):
         s = ""
         for c in self.childNodes:
              s += str(c) + "\n"
@@ -170,31 +207,31 @@ def UCT(rootstate, itermax, verbose=False):
 
     for i in range(itermax):
         node = rootnode
-        state = rootstate.Clone()
+        state = rootstate.clone()
 
         # Select
         while node.untriedMoves == [] and node.childNodes != []:  # node is fully expanded and non-terminal
             node = node.UCTSelectChild()
-            state.DoMove(node.move)
+            state.do_move(node.move)
 
         # Expand
         if node.untriedMoves != []:  # if we can expand (i.e. state/node is non-terminal)
             m = random.choice(node.untriedMoves)
-            state.DoMove(m)
-            node = node.AddChild(m, state)  # add child and descend tree
+            state.do_move(m)
+            node = node.add_child(m, state)  # add child and descend tree
 
         # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
-        while state.GetMoves() != []:  # while state is non-terminal
-            state.DoMove(random.choice(state.GetMoves()))
+        while state.get_moves() != []:  # while state is non-terminal
+            state.do_move(random.choice(state.get_moves()))
 
         # Backpropagate
         while node != None:  # backpropagate from the expanded node and work back to the root node
-            node.Update(state.GetResult(
-                node.playerJustMoved))  # state is terminal. Update node with result from POV of node.playerJustMoved
+            node.update(state.get_result(
+                node.playerJustMoved))  # state is terminal. update node with result from POV of node.playerJustMoved
             node = node.parentNode
 
     # Output some information about the tree - can be omitted
-    if (verbose): print(rootnode.TreeToString(0))
-    else: print(rootnode.ChildrenToString())
+    if (verbose): print(rootnode.tree_to_string(0))
+    else: print(rootnode.children_to_string())
 
     return sorted(rootnode.childNodes, key=lambda c: c.visits)[-1].move  # return the move that was most visited
