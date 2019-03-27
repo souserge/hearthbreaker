@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04d26fac-3d7e-46f4-bab5-1d9fd2a59775" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/docs/contributing.rst" afterPath="$PROJECT_DIR$/docs/contributing.rst" />
+      <change beforePath="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" afterPath="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" />
       <change beforePath="$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py" afterPath="$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py" />
+      <change beforePath="$PROJECT_DIR$/run_games.py" afterPath="$PROJECT_DIR$/run_games.py" />
       <change beforePath="$PROJECT_DIR$/run_mcts.py" afterPath="$PROJECT_DIR$/run_mcts.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,16 +17,27 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/hearthbreaker_nasze$run_mcts.coverage" NAME="run_mcts Coverage Results" MODIFIED="1553608358021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/hearthbreaker$run_games.coverage" NAME="run_games Coverage Results" MODIFIED="1553105393108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hearthbreaker$run_mcts.coverage" NAME="run_mcts Coverage Results" MODIFIED="1553636617387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hearthbreaker$run_games.coverage" NAME="run_games Coverage Results" MODIFIED="1553728430825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hearthbreaker_nasze$run_games.coverage" NAME="run_games Coverage Results" MODIFIED="1553265972973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="controlling_agent.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="121" column="42" lean-forward="true" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="run_games.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run_games.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+            <state relative-caret-position="96">
+              <caret line="64" column="58" lean-forward="false" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -34,10 +48,15 @@
       <file leaf-file-name="run_mcts.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run_mcts.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+            <state relative-caret-position="144">
+              <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+                <marker date="1553728564599" expanded="true" signature="602:1775" ph="..." />
+                <marker date="1553728564599" expanded="true" signature="609:765" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1553728564599" expanded="true" signature="1131:1487" ph="..." />
+                <marker date="1553728564599" expanded="true" signature="1808:1906" ph="..." />
+                <marker date="1553728564599" expanded="true" signature="1815:1886" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
               </folding>
             </state>
           </provider>
@@ -46,7 +65,7 @@
       <file leaf-file-name="_pydev_execfile.py" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
+            <state relative-caret-position="408">
               <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
@@ -56,7 +75,7 @@
       <file leaf-file-name="pydevd.py" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
+            <state relative-caret-position="40008">
               <caret line="1667" column="0" lean-forward="false" selection-start-line="1667" selection-start-column="0" selection-end-line="1667" selection-end-column="0" />
               <folding />
             </state>
@@ -66,40 +85,44 @@
       <file leaf-file-name="mcts_agent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-57">
-              <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="184">
+              <caret line="120" column="8" lean-forward="true" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="35" />
               <folding>
-                <element signature="e#0#51#0" expanded="true" />
+                <marker date="1553728153477" expanded="true" signature="2916:3352" ph="..." />
+                <marker date="1553728153477" expanded="true" signature="3049:3256" ph="..." />
+                <marker date="1553728153477" expanded="true" signature="3162:3256" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="heroes.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hearthbreaker/cards/heroes.py">
+      <file leaf-file-name="itertools.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm2017.3/system/python_stubs/2026636727/itertools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="68" lean-forward="false" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+            <state relative-caret-position="234">
+              <caret line="137" column="8" lean-forward="false" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mage3.hsdeck" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mage3.hsdeck">
+      <file leaf-file-name="basic_agents.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="-137">
+              <caret line="43" column="33" lean-forward="false" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="card_defs.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/card_defs.json">
+      <file leaf-file-name="random.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Python37/Lib/random.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184128">
-              <caret line="7672" column="7" lean-forward="false" selection-start-line="7672" selection-start-column="7" selection-end-line="7672" selection-end-column="7" />
+            <state relative-caret-position="224">
+              <caret line="261" column="0" lean-forward="false" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -108,21 +131,11 @@
       <file leaf-file-name="engine.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="176" column="23" lean-forward="true" selection-start-line="176" selection-start-column="8" selection-end-line="176" selection-end-column="23" />
+            <state relative-caret-position="152">
+              <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hearthbreaker/tags/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12696">
-              <caret line="532" column="0" lean-forward="false" selection-start-line="532" selection-start-column="0" selection-end-line="532" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -138,12 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>change_ag</find>
-      <find>change_age</find>
-      <find>aggre</find>
-      <find>kasz</find>
-      <find>kaszank</find>
-      <find>chang</find>
       <find>player hand</find>
       <find>Choosing target from list:</find>
       <find>My hero's health</find>
@@ -163,11 +170,17 @@
       <find>utc</find>
       <find>gamesta</find>
       <find>UCT</find>
-      <find>UCTPlayGame</find>
       <find>reduce</find>
       <find>pre_</find>
       <find>redu</find>
       <find>reduc</find>
+      <find>mcts</find>
+      <find>info</find>
+      <find>print_info_about_turn</find>
+      <find>uct(</find>
+      <find>m:</find>
+      <find>agent</find>
+      <find>UCTPlayGame</find>
     </findStrings>
     <dirStrings>
       <dir>D:\studia\___cos\hearthbreaker</dir>
@@ -190,11 +203,11 @@
         <option value="$PROJECT_DIR$/hearthbreaker/game_objects.py" />
         <option value="$PROJECT_DIR$/hearthbreaker/engine.py" />
         <option value="$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py" />
-        <option value="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" />
         <option value="$PROJECT_DIR$/hearthbreaker/cards/heroes.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py" />
+        <option value="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" />
         <option value="$PROJECT_DIR$/run_games.py" />
         <option value="$PROJECT_DIR$/run_mcts.py" />
-        <option value="$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py" />
       </list>
     </option>
   </component>
@@ -227,23 +240,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="hearthbreaker_nasze" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker_nasze" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hearthbreaker_nasze" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker_nasze" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
               <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hearthbreaker_nasze" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hearthbreaker_nasze" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hearthbreaker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
               <item name="hearthbreaker" type="462c0819:PsiDirectoryNode" />
               <item name="agents" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -251,6 +262,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -271,7 +284,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.run_mcts">
+  <component name="RunManager" selected="Python.run_games">
     <configuration name="run_games" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -316,8 +329,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.run_mcts" />
-        <item index="1" class="java.lang.String" itemvalue="Python.run_games" />
+        <item index="0" class="java.lang.String" itemvalue="Python.run_games" />
+        <item index="1" class="java.lang.String" itemvalue="Python.run_mcts" />
       </list>
     </recent_temporary>
   </component>
@@ -352,7 +365,7 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44198895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.61878455" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35911602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -362,7 +375,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34143648" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42983425" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -447,9 +460,9 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run_mcts.py</url>
-          <line>79</line>
-          <option name="timeStamp" value="34" />
+          <url>file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -459,7 +472,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="35" />
+      <option name="time" value="38" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -469,23 +482,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hearthbreaker/game_objects.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24072">
-          <caret line="1013" column="57" lean-forward="false" selection-start-line="1013" selection-start-column="57" selection-end-line="1013" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files/Python37/Lib/abc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3312">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/card_tests/neutral_tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12072">
@@ -517,10 +513,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1776">
           <caret line="74" column="60" lean-forward="true" selection-start-line="74" selection-start-column="60" selection-end-line="74" selection-end-column="60" />
-          <folding>
-            <marker date="1553251975177" expanded="true" signature="2130:4062" ph="..." />
-            <marker date="1553251975177" expanded="true" signature="4733:4747" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -528,7 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="888">
           <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -567,7 +559,6 @@
             <element signature="e#16038#16774#0" expanded="false" />
             <element signature="e#16822#16834#0" expanded="false" />
             <element signature="e#16883#16894#0" expanded="false" />
-            <marker date="1553105125805" expanded="true" signature="7383:7555" ph="..." />
           </folding>
         </state>
       </provider>
@@ -620,10 +611,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1512">
           <caret line="63" column="40" lean-forward="true" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
-          <folding>
-            <marker date="1553251975177" expanded="true" signature="2130:4062" ph="..." />
-            <marker date="1553251975177" expanded="true" signature="4733:4747" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -681,9 +669,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2801">
           <caret line="430" column="8" lean-forward="false" selection-start-line="430" selection-start-column="8" selection-end-line="430" selection-end-column="8" />
-          <folding>
-            <marker date="1553088368886" expanded="true" signature="10381:10513" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -756,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="70" column="22" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,7 +763,6 @@
             <element signature="e#16038#16774#0" expanded="false" />
             <element signature="e#16822#16834#0" expanded="false" />
             <element signature="e#16883#16894#0" expanded="false" />
-            <marker date="1553105125805" expanded="true" signature="7383:7555" ph="..." />
           </folding>
         </state>
       </provider>
@@ -787,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
           <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,27 +788,6 @@
           <caret line="1157" column="0" lean-forward="false" selection-start-line="1155" selection-start-column="8" selection-end-line="1155" selection-end-column="11" />
           <folding>
             <element signature="e#0#10#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2472">
-          <caret line="103" column="72" lean-forward="false" selection-start-line="102" selection-start-column="16" selection-end-line="103" selection-end-column="31" />
-          <folding>
-            <marker date="1553251975177" expanded="true" signature="2130:4062" ph="..." />
-            <marker date="1553251975177" expanded="true" signature="4733:4747" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3192">
-          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -864,7 +826,7 @@
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
+        <state relative-caret-position="40008">
           <caret line="1667" column="0" lean-forward="false" selection-start-line="1667" selection-start-column="0" selection-end-line="1667" selection-end-column="0" />
           <folding />
         </state>
@@ -872,48 +834,89 @@
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
+        <state relative-caret-position="408">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_games.py">
+    <entry file="file://$USER_HOME$/.PyCharm2017.3/system/python_stubs/2026636727/itertools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="234">
+          <caret line="137" column="8" lean-forward="false" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="261" column="0" lean-forward="false" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="176" column="23" lean-forward="true" selection-start-line="176" selection-start-column="8" selection-end-line="176" selection-end-column="23" />
+        <state relative-caret-position="152">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/controlling_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="121" column="42" lean-forward="true" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="184">
+          <caret line="120" column="8" lean-forward="true" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="35" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <marker date="1553728153477" expanded="true" signature="2916:3352" ph="..." />
+            <marker date="1553728153477" expanded="true" signature="3049:3256" ph="..." />
+            <marker date="1553728153477" expanded="true" signature="3162:3256" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-137">
+          <caret line="43" column="33" lean-forward="false" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="64" column="58" lean-forward="false" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/run_mcts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+        <state relative-caret-position="144">
+          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+            <marker date="1553728564599" expanded="true" signature="602:1775" ph="..." />
+            <marker date="1553728564599" expanded="true" signature="609:765" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553728564599" expanded="true" signature="1131:1487" ph="..." />
+            <marker date="1553728564599" expanded="true" signature="1808:1906" ph="..." />
+            <marker date="1553728564599" expanded="true" signature="1815:1886" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
           </folding>
         </state>
       </provider>

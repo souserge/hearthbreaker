@@ -37,7 +37,7 @@ Any new code should be accompanied with a unit test which runs through the new c
 Contributions should follow the standard `GitHub workflow <https://guides.github.com/introduction/flow/index.html>`_:
 
  1. Fork the repository
- 2. Clone from the forked repository
+ 2. clone from the forked repository
  3. Create a feature branch
  4. Make some changes
  5. As soon as you have completed anything (a card, a bug fix, a new feature, etc), submit a pull request
