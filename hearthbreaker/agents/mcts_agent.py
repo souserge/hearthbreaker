@@ -9,7 +9,7 @@ def play_move(game, chosen_move):
     # chosen_move = (cards, attacks) = ( (('Voodoo Doctor', 1),) , [] )
     # dlaczego cards to krotka, a attacks to list? chyba obydwe rzeczy powinny być typu list
 
-    game._start_turn()
+    # game._start_turn()
     cards, attacks = chosen_move
     for card in cards:
         game.play_card(card)
@@ -90,11 +90,12 @@ class GameState:
         all_possible_moves = functools.reduce(operator.add, seq, [])
 
         # printing
-        print("---\n", player, "'s mana:", player.mana)
-        print("Possible cards to play:", possible_cards_to_play)
-        print("Cards combinations:", cards_combinations)
+        # print("---\n", player, "'s mana:", player.mana)
+        # print("Possible cards to play:", possible_cards_to_play)
+        # print("Cards combinations:", cards_combinations)
         #print("Attack sequences:", attack_sequences)
         #print("All possible moves:",all_possible_moves)
+
         return all_possible_moves
 
     def get_result(self, playerjm):
@@ -204,23 +205,35 @@ def UCT(rootstate, itermax, verbose=False):
 
         # Select
         while node.untriedMoves == [] and node.childNodes != []:  # node is fully expanded and non-terminal
+            print("==========\nSelect - chosen move:", node.move)
             node = node.UCTSelectChild()
             state.do_move(node.move)
+            print("Select - finished selecting for move:", node.move, "\n==========")
 
         # Expand
         if node.untriedMoves != []:  # if we can expand (i.e. state/node is non-terminal)
             m = random.choice(node.untriedMoves)
+            print("==========\nExpand - chosen move:", m)
             state.do_move(m)
             node = node.add_child(m, state)  # add child and descend tree
+            print("Expand - finished expanding for move:", m, "\n==========")
 
         # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
         while state.get_moves() != []:  # while state is non-terminal
-            state.do_move(random.choice(state.get_moves()))
+            m = random.choice(state.get_moves())
+            print("==========\nRollout - chosen random move:", m)
+            state.do_move(m)
+            print("Rollout - finished rollout for random move:", m, "\n==========")
+            state.game._start_turn()
+            print("current",state.game.current_player)
+
 
         # Backpropagate
         while node != None:  # backpropagate from the expanded node and work back to the root node
+            print("==========\nBackpropagation - updating node:", node)
             node.update(state.get_result(
                 node.playerJustMoved))  # state is terminal. update node with result from POV of node.playerJustMoved
+            print("Backpropagation - finished updating node:", node, "\n==========")
             node = node.parentNode
 
     # Output some information about the tree - can be omitted
