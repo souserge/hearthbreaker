@@ -313,8 +313,8 @@ class Game(Bindable):
         if not card.can_use(self.current_player, self):
             raise GameException("That card cannot be used")
 
-        # print("PLAYER HAND: ", self.current_player.hand)
-        # print("PLAYER CARD: ", card)
+        print("PLAYER HAND: ", self.current_player.hand)
+        print("PLAYER CARD: ", card)
         card_index = self.current_player.hand.index(card)
 
         self.current_player.hand.pop(card_index)
