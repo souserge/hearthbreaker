@@ -165,6 +165,12 @@ class Card(Bindable, GameObject):
         #return self.name #+ " (" + str(self.mana) + " mana)"
         return repr((self.name, self.mana))
 
+    def __eq__(self, other):
+        return self.name == other.name and self.mana == other.mana
+
+    def __hash__(self):
+        return hash((self.name, self.mana))
+
     def replace(self, new_card):
         index = self.player.hand.index(self)
         self.unattach()
