@@ -89,7 +89,7 @@ class Game(Bindable):
         if target_to_attack.is_hero():
             target_to_attack = self.other_player.hero
         else:
-            filtered_minions_targets = list(filter(lambda x: x.index==minion.index, self.other_player.minions))
+            filtered_minions_targets = list(filter(lambda x: x.index==target_to_attack.index, self.other_player.minions))
             if len(filtered_minions_targets)<1:
                 raise Exception('No minion targets found in game copy: {}'.format(filtered_minions_targets))
             target_to_attack = filtered_minions_targets[0]
@@ -313,8 +313,11 @@ class Game(Bindable):
         if not card.can_use(self.current_player, self):
             raise GameException("That card cannot be used")
 
-        print("PLAYER HAND: ", self.current_player.hand)
-        print("PLAYER CARD: ", card)
+        # print("PLAYER HAND: ", self.current_player.hand)
+        # print("PLAYER CARD: ", card)
+        if card not in self.current_player.hand:
+            print("\n@@@@@ ERROR IS COMING @@@@@\n@@ CARD IS NOT IN PLAYER.HAND@@\n")
+
         card_index = self.current_player.hand.index(card)
 
         self.current_player.hand.pop(card_index)

@@ -909,6 +909,12 @@ class Minion(Character):
     def __repr__(self):
         return 'Minion: '+ self.card.__str__() + " ("+str(self.health) + " health) ("+str(self.base_attack)+" attack)"
 
+    def __eq__(self, other):
+        return self.card.name == other.card.name and self.card.mana == other.card.mana and self.base_health == other.base_health and self.base_attack == other.base_attack
+
+    def __hash__(self):
+        return hash((self.card.name, self.card.mana, self.base_health, self.base_attack))
+
     def add_to_board(self, index):
         aura_affects = {}
         for player in self.game.players:

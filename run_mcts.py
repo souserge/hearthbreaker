@@ -13,8 +13,8 @@ from hearthbreaker.agents.mcts_agent import GameState, MCTSAgent, Node
 
 
 # def UCTPlayGame():
-#     """ Play a sample game between two UCT players where each player gets a different number
-#         of UCT iterations (= simulations = tree nodes).
+#     """ Play a sample game between two uct players where each player gets a different number
+#         of uct iterations (= simulations = tree nodes).
 #     """
 #
 #     cards = load_deck("mage3.hsdeck")
@@ -27,9 +27,9 @@ from hearthbreaker.agents.mcts_agent import GameState, MCTSAgent, Node
 #     while (state.get_moves() != []):
 #         print(str(state))
 #         if state.playerJustMoved == 1:
-#             m = UCT(rootstate = state, itermax = 1000, verbose = False) # play with values for itermax and verbose = True
+#             m = uct(rootstate = state, itermax = 1000, verbose = False) # play with values for itermax and verbose = True
 #         else:
-#             m = UCT(rootstate = state, itermax = 100, verbose = False)
+#             m = uct(rootstate = state, itermax = 100, verbose = False)
 #         print("Best Move: " + str(m) + "\n")
 #         state.do_move(m)
 #     if state.get_result(state.playerJustMoved) == 1.0:
@@ -40,6 +40,6 @@ from hearthbreaker.agents.mcts_agent import GameState, MCTSAgent, Node
 #
 #
 # if __name__ == "__main__":
-#     """ Play a single game to the end using UCT for both players.
+#     """ Play a single game to the end using uct for both players.
 #     """
 #     UCTPlayGame()
