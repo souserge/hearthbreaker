@@ -4,14 +4,10 @@ import functools
 import operator
 import random
 import math
-from hearthbreaker.agents.basic_agents import RandomAgent, DoNothingAgent
 
-def play_move(game, chosen_move):
-    # chosen_move = (cards, attacks) = ( (('Voodoo Doctor', 1),) , [] )
-    # dlaczego cards to krotka, a attacks to list? chyba obydwe rzeczy powinny być typu list
-
-    # game._start_turn()
-    cards, attacks = chosen_move
+def play_move(game, move):
+    game._start_turn()
+    cards, attacks = move
     for card in cards:
         game.play_card(card)
     
@@ -24,6 +20,7 @@ def play_move(game, chosen_move):
 
 def get_minions_to_use(game):
     minions_to_use = []
+    print(game.current_player.minions)
     for minion in game.current_player.minions:
         if minion.can_attack():
             minions_to_use.append(minion)
@@ -32,8 +29,11 @@ def get_minions_to_use(game):
 def get_inner_tree(game):
     attack_sequences = []
     minions_use = get_minions_to_use(game)
+    print("MINIONS TO USE")
+    print(minions_use)
     for minion in minions_use:
         targets = minion.get_targets()
+        
         for target in targets:
             attack = (minion, target)
             attack_sequences.append([attack]) 
@@ -47,59 +47,63 @@ def get_inner_tree(game):
 
 class GameState:
     """ A state of the game, i.e. the game board. These are the only functions which are
-        absolutely necessary to implement uct in any 2-player complete information deterministic
+        absolutely necessary to implement UCT in any 2-player complete information deterministic 
         zero-sum game, although they can be enhanced and made quicker, for example by using a 
         GetRandomMove() function to generate a random move during rollout.
         By convention the players are numbered 1 and 2.
     """
     def __init__(self, game):
         self.game = game
-        self.playerJustMoved = game.current_player # At the root pretend the player just moved is player 2 - player 1 has the first move
+        # changed from game.current_player to game.other_player
+        self.playerJustMoved = game.other_player # At the root pretend the player just moved is player 2 - player 1 has the first move
         
-    def clone(self):
+    def Clone(self):
         return GameState(self.game.copy())
 
-    def do_move(self, move):
-        """ update a state by carrying out the given move.
+    def DoMove(self, move):
+        """ Update a state by carrying out the given move.
             Must update playerJustMoved.
         """
         play_move(self.game, move)
         self.playerJustMoved = self.game.current_player
 
         
-    def get_moves(self):
+    def GetMoves(self):
         """ Get all possible moves from this state.
         """
         player = self.game.current_player
         opponent = self.game.other_player
         if player.hero.dead or opponent.hero.dead:
             return []
+
         cards = player.hand
-
         # get all combinations of cards play (order doesn't matter): 
-        possible_cards_to_play = list(filter(lambda x: x.mana <= player.mana and x.can_use(player, player.game), cards))
+        a = list(filter(lambda x: x.mana < player.mana, cards))
+        # print("CARDS TO PLAY")
+        # print(a)
         cards_combinations = []
-        for r in range(len(possible_cards_to_play)+1):
-	        cards_combinations.extend(list(combinations(possible_cards_to_play, r)))
-        cards_combinations = list(filter(lambda xs: sum([x.mana_cost() for x in xs]) <= player.mana, cards_combinations)) #+ [[]]
-
+        for r in range(0, len(a) + 1):
+	        cards_combinations += list(combinations(a, r))
+        # print("CARDS COMB BEF")
+        # print(cards_combinations)
+        # print("MANA", player.mana)
+        cards_combinations = list(filter(lambda xs: sum([x.mana_cost() for x in xs]) <= player.mana, cards_combinations))
+        # print("CARDS COMB AF")
+        # print(cards_combinations)
+        # print(list(filter(lambda xs: sum([x.mana_cost() for x in xs]) > player.mana, cards_combinations)) + [[]])
+        
+        print("-------------------")
         # get all combinations of attacks (order matters):
         attack_sequences = get_inner_tree(self.game) + [[]]
+        # print(attack_sequences)
 
         seq = map(lambda cc: list(map(lambda aseq: (cc,aseq), attack_sequences)), cards_combinations)
         # [[(), ()],[(), ()]] => [(), (), (), ()]
         all_possible_moves = functools.reduce(operator.add, seq, [])
-
-        # printing
-        # print("---\n", player, "'s mana:", player.mana)
-        # print("Possible cards to play:", possible_cards_to_play)
-        # print("Cards combinations:", cards_combinations)
-        #print("Attack sequences:", attack_sequences)
-        #print("All possible moves:",all_possible_moves)
-
+        # print(all_possible_moves)
         return all_possible_moves
 
-    def get_result(self, playerjm):
+    def GetResult(self, playerjm):
         """ Get the game result from the viewpoint of playerjm. 
         """
         return 0 if playerjm.hero.dead else 1
@@ -112,34 +116,12 @@ class MCTSAgent(DoNothingAgent):
         super().__init__()
         self.depth = depth
 
-    def print_info_about_turn(self, player):
-        print("TURN OF MCTS AGENT")
-        print("--> info -->")
-        print("Hero:", player.hero)
-        print("My health:", player.hero.health)
-        print("Opponent's health:", player.game.other_player.hero.health)
-        print("My mana:", player.mana)
-
-        print("Cards on hand:\n\t", end='')
-        if player.hand:
-            cards_details = [str(card.name) + " (" + str(card.mana) + " mana)" for card in player.hand]
-            print(*cards_details, sep='\n\t')
-        else:
-            print('[]')
-
-        print("Cards on table:\n\t", end='')
-        if player.minions:
-            print(*player.minions, sep='\n\t')
-        else:
-            print('[]')
-
-        print("<-- info <--")
-
     def do_turn(self, player):
-        self.print_info_about_turn(player)
+        print('---\nTurn of', player)
         state = GameState(player.game)
-        move = uct(rootstate = state, itermax = self.depth, verbose = False)
-        play_move(player.game, move)
+        move = UCT(rootstate = state, itermax = self.depth, verbose = False)
+        print(move)
+        play_move(player.game,move)
 
 class Node:
     """ A node in the game tree. Note wins is always from the viewpoint of playerJustMoved.
@@ -151,10 +133,10 @@ class Node:
         self.childNodes = []
         self.wins = 0
         self.visits = 0
-        self.untriedMoves = state.get_moves() # future child nodes
+        self.untriedMoves = state.GetMoves() # future child nodes
         self.playerJustMoved = state.playerJustMoved # the only part of the state that the Node needs later
         
-    def uct_select_child(self):
+    def UCTSelectChild(self):
         """ Use the UCB1 formula to select a child node. Often a constant UCTK is applied so we have
             lambda c: c.wins/c.visits + UCTK * sqrt(2*log(self.visits)/c.visits to vary the amount of
             exploration versus exploitation.
@@ -162,7 +144,7 @@ class Node:
         s = sorted(self.childNodes, key = lambda c: c.wins/c.visits + math.sqrt(2*math.log(self.visits)/c.visits))[-1]
         return s
     
-    def add_child(self, m, s):
+    def AddChild(self, m, s):
         """ Remove m from untriedMoves and add a new child node for this move.
             Return the added child node
         """
@@ -171,105 +153,68 @@ class Node:
         self.childNodes.append(n)
         return n
     
-    def update(self, result):
-        """ update this node - one additional visit and result additional wins. result must be from the viewpoint of playerJustmoved.
+    def Update(self, result):
+        """ Update this node - one additional visit and result additional wins. result must be from the viewpoint of playerJustmoved.
         """
         self.visits += 1
         self.wins += result
 
-    # def __repr__(self):
-    #     return "[M:" + str(self.move) + " W/V:" + str(self.wins) + "/" + str(self.visits) + " U:" + str(self.untriedMoves) + "]"
-
     def __repr__(self):
-        return "[M:" + str(self.move) + " W/V:" + str(self.wins) + "/" + str(self.visits) + "]"
+        return "[M:" + str(self.move) + " W/V:" + str(self.wins) + "/" + str(self.visits) + " U:" + str(self.untriedMoves) + "]"
 
-    def tree_to_string(self, indent):
-        s = self.indent_string(indent) + str(self)
+    def TreeToString(self, indent):
+        s = self.IndentString(indent) + str(self)
         for c in self.childNodes:
-             s += c.tree_to_string(indent + 1)
+             s += c.TreeToString(indent+1)
         return s
 
-    def indent_string(self, indent):
+    def IndentString(self,indent):
         s = "\n"
         for i in range (1,indent+1):
             s += "| "
         return s
 
-    def children_to_string(self):
+    def ChildrenToString(self):
         s = ""
         for c in self.childNodes:
              s += str(c) + "\n"
         return s
 
-def uct(rootstate, itermax, verbose=False):
+def UCT(rootstate, itermax, verbose=False):
     rootnode = Node(state=rootstate)
 
     for i in range(itermax):
         node = rootnode
-        state = rootstate.clone()
+        state = rootstate.Clone()
 
-        print("Turn:", state.game._turns_passed, ", iteration:", i)
         # Select
         while node.untriedMoves == [] and node.childNodes != []:  # node is fully expanded and non-terminal
-            print("==========\nSelect - chosen move:", node.move)
+            # print('SELECT')
             node = node.UCTSelectChild()
-            state.do_move(node.move)
-            print("Select - finished selecting for move:", node.move, "\n==========")
+            state.DoMove(node.move)
 
         # Expand
         if node.untriedMoves != []:  # if we can expand (i.e. state/node is non-terminal)
+            # print('EXPAND')
+
             m = random.choice(node.untriedMoves)
-            print("==========\nExpand - chosen move:", m)
-            state.do_move(m)
-            node = node.add_child(m, state)  # add child and descend tree
-            print("Expand - finished expanding for move:", m, "\n==========")
+            state.DoMove(m)
+            node = node.AddChild(m, state)  # add child and descend tree
 
-        # # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
-        # while state.get_moves() != []:  # while state is non-terminal
-        #     m = random.choice(state.get_moves())
-        #     print("==========\nRollout - chosen random move:", m)
-        #     state.do_move(m)
-        #     print("Rollout - finished rollout for random move:", m, "\n==========")
-        #     state.game._start_turn()
-        #     print("current",state.game.current_player)
+        # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
+        while state.GetMoves() != []:  # while state is non-terminal
+            # print('PLAYOUT')
+            state.DoMove(random.choice(state.GetMoves()))
 
-        # My rollout
-        curr_player_won = 0
-        if not state.game.current_player.hero.dead and not state.game.other_player.hero.dead:
-            game_copy = state.game.copy()
-            game_copy.players[0].change_agent(RandomAgent())
-            game_copy.players[1].change_agent(RandomAgent())
-
-            while not game_copy.current_player.hero.dead and not game_copy.other_player.hero.dead:
-                game_copy._start_turn()
-                game_copy.current_player.agent.do_turn(game_copy.current_player)
-                game_copy._end_turn()
-            if game_copy.current_player.hero.dead:
-                print("current player DEAD")
-            elif game_copy.other_player.hero.dead:
-                print("other player DEAD")
-            else:
-                print("ERROR: no one won")
-            curr_player_won = 0 if game_copy.current_player.hero.dead else 1
-
-
-        # # Backpropagate
-        # while node != None:  # backpropagate from the expanded node and work back to the root node
-        #     print("==========\nBackpropagation - updating node:", node)
-        #     node.update(state.get_result(
-        #         node.playerJustMoved))  # state is terminal. update node with result from POV of node.playerJustMoved
-        #     print("Backpropagation - finished updating node:", node, "\n==========")
-        #     node = node.parentNode
-
-        # My Backpropagate
+        # Backpropagate
         while node != None:  # backpropagate from the expanded node and work back to the root node
-            print("==========\nBackpropagation - updating node:", node)
-            node.update(curr_player_won)  # state is terminal. update node with result from POV of node.playerJustMoved
-            print("Backpropagation - finished updating node:", node, "\n==========")
+            # print('BACKPROPAGATE')
+            node.Update(state.GetResult(
+                node.playerJustMoved))  # state is terminal. Update node with result from POV of node.playerJustMoved
             node = node.parentNode
 
     # Output some information about the tree - can be omitted
-    if (verbose): print(rootnode.tree_to_string(0))
-    else: print(rootnode.children_to_string())
+    if (verbose): print(rootnode.TreeToString(0))
+    else: print(rootnode.ChildrenToString())
 
     return sorted(rootnode.childNodes, key=lambda c: c.visits)[-1].move  # return the move that was most visited
