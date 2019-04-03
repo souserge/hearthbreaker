@@ -9,11 +9,12 @@ from hearthbreaker.agents.basic_agents import RandomAgent, DoNothingAgent
 def play_move(game, chosen_move):
     cards, attacks = chosen_move
 
-    for card in cards:
-        game.play_card(card)
-    
-    for (minion, target) in attacks:
-        game.attack_target(minion, target)
+    if len(cards) > 0:
+        for card in cards:
+            game.play_card(card)
+    if len(attacks) > 0:
+        for (minion, target) in attacks:
+            game.attack_target(minion, target)
 
     game._end_turn()
 
@@ -77,7 +78,16 @@ class GameState:
         cards_combinations = []
         for r in range(len(possible_cards_to_play)+1):
 	        cards_combinations.extend(list(combinations(possible_cards_to_play, r)))
-        cards_combinations = list(filter(lambda xs: sum([x.mana_cost() for x in xs]) <= player.mana, cards_combinations)) #+ [[]]
+
+        # print("CARDS COMB BEF")
+        # print(cards_combinations)
+        # print("MANA", player.mana)
+        cards_combinations = list(
+            filter(lambda xs: sum([x.mana_cost() for x in xs]) <= player.mana, cards_combinations))  # + [[]]
+        # print("CARDS COMB AF")
+        # print(cards_combinations)
+        # print(list(filter(lambda xs: sum([x.mana_cost() for x in xs]) > player.mana, cards_combinations)) + [[]])
+        print("-------------------")
 
         # get all combinations of attacks (order matters):
         attack_sequences = get_inner_tree(self.game) + [[]]
@@ -86,12 +96,12 @@ class GameState:
         # [[(), ()],[(), ()]] => [(), (), (), ()]
         all_possible_moves = functools.reduce(operator.add, seq, [])
 
-        # printing
+        ##### printing informations
         # print("---\n", player, "'s mana:", player.mana)
         # print("Possible cards to play:", possible_cards_to_play)
         # print("Cards combinations:", cards_combinations)
         #print("Attack sequences:", attack_sequences)
-        #print("All possible moves:",all_possible_moves)
+        print("All possible moves:",all_possible_moves)
 
         return all_possible_moves
 
