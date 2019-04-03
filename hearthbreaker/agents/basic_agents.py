@@ -98,7 +98,7 @@ class RandomAgent(DoNothingAgent):
         return [True, True, True, True]
 
     def print_info_about_turn(self, player):
-        # print("--> info -->")
+        print("\nSTART A TURN OF RANDOM AGENT", player)
         print("\tHero:", player.hero.card)
         print("\tHealth:", player.hero.health)
         print("\tOpponent's health:", player.game.other_player.hero.health)
@@ -120,8 +120,7 @@ class RandomAgent(DoNothingAgent):
         # print("<-- info <--")
 
     def do_turn(self, player):
-        print("\nSTART A TURN OF RANDOM AGENT", player)
-        self.print_info_about_turn(player)
+        # self.print_info_about_turn(player)
         while True:
             attack_minions = [minion for minion in filter(lambda minion: minion.can_attack(), player.minions)]
             if player.hero.can_attack():
