@@ -72,9 +72,9 @@ class GameState:
         if player.hero.dead or opponent.hero.dead:
             return []
         cards = player.hand
-
+        possible_cards_to_play = list(filter(lambda x: x.mana <= player.mana, cards))
         # get all combinations of cards play (order doesn't matter): 
-        a = list(filter(lambda x: cards.mana_cost() <= mana, cards))
+        a = list(filter(lambda x: x.mana_cost() <= player.mana, cards))
         cards_combinations = []
         for r in range(len(possible_cards_to_play)+1):
 	        cards_combinations.extend(list(combinations(possible_cards_to_play, r)))
@@ -183,7 +183,7 @@ class Node:
              s += str(c) + "\n"
         return s
 
-def uct(rootstate, itermax, verbose=False):
+def UCT(rootstate, itermax, verbose=False):
     rootnode = Node(state=rootstate)
 
     for i in range(itermax):
@@ -234,7 +234,7 @@ def uct(rootstate, itermax, verbose=False):
 
     # Output some information about the tree - can be omitted
     if (verbose): print (rootnode.TreeToString(0))
-    else: print (rootnode.ChildrenToString())
+    else: print (rootnode.children_to_string())
 
     return sorted(rootnode.childNodes, key = lambda c: c.visits)[-1].move # return the move that was most visited
                 
