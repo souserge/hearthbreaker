@@ -8,11 +8,13 @@ import math
 def play_move(game, move):
     game._start_turn()
     cards, attacks = move
-    for card in cards:
-        game.play_card(card)
-    
-    for (minion, target) in attacks:
-        game.attack_target(minion, target)
+
+    if len(cards)>0:
+        for card in cards:
+            game.play_card(card)
+    if len(attacks)>0: 
+        for (minion, target) in attacks:
+            game.attack_target(minion, target)
 
     # end round 
     game._end_turn()
@@ -56,7 +58,8 @@ class GameState:
         self.game = game
         # changed from game.current_player to game.other_player
         self.playerJustMoved = game.other_player # At the root pretend the player just moved is player 2 - player 1 has the first move
-        
+        # self.playerJustMoved = game.current_player
+
     def Clone(self):
         return GameState(self.game.copy())
 
@@ -95,12 +98,13 @@ class GameState:
         print("-------------------")
         # get all combinations of attacks (order matters):
         attack_sequences = get_inner_tree(self.game) + [[]]
-        # print(attack_sequences)
+        
 
         seq = map(lambda cc: list(map(lambda aseq: (cc,aseq), attack_sequences)), cards_combinations)
         # [[(), ()],[(), ()]] => [(), (), (), ()]
         all_possible_moves = functools.reduce(operator.add, seq, [])
-        # print(all_possible_moves)
+        print("ATT COMB")
+        print(all_possible_moves)
         return all_possible_moves
 
     def GetResult(self, playerjm):
