@@ -4,7 +4,7 @@ import functools
 import operator
 import random
 import math
-from hearthbreaker.agents.basic_agents import RandomAgent, DoNothingAgent
+from hearthbreaker.agents.basic_agents import RandomAgent, DoNothingAgent, OpponentAgent
 
 def play_move(game, chosen_move):
     cards, attacks = chosen_move
@@ -67,11 +67,16 @@ class GameState:
     def get_moves(self):
         """ Get all possible moves from this state.
         """
+
         player = self.game.current_player
         opponent = self.game.other_player
         if player.hero.dead or opponent.hero.dead:
             return []
         cards = player.hand
+
+        print("\nGET MOVES ->\n\tcurrent player hand:", player.hand, "\n\tcurrent player table:", player.minions)
+        print("\topponent's hand:",opponent.hand, "\n\topponent's minions:",opponent.minions)
+        print("GET MOVES <-\n")
 
         # get all combinations of cards play (order doesn't matter): 
         possible_cards_to_play = list(filter(lambda x: x.mana <= player.mana and x.can_use(player, player.game), cards))
@@ -119,9 +124,9 @@ class MCTSAgent(DoNothingAgent):
         self.depth = depth
 
     def print_info_about_turn(self, player):
-        print("TURN OF MCTS AGENT")
+        print("\nTURN OF MCTS AGENT")
         print("--> info -->")
-        print("Hero:", player.hero)
+        print("My", player.hero)
         print("My health:", player.hero.health)
         print("Opponent's health:", player.game.other_player.hero.health)
         print("My mana:", player.mana)
@@ -266,4 +271,6 @@ def uct(rootstate, itermax, verbose=False):
     if (verbose): print("Tree info:",rootnode.tree_to_string(0))
     else: print("Children of tree info:",rootnode.children_to_string())
 
-    return sorted(rootnode.childNodes, key=lambda c: c.visits)[-1].move  # return the move that was most visited
+    ret = sorted(rootnode.childNodes, key=lambda c: c.wins*1.5+c.visits)[-1].move  # return the move that was most visited
+    return ret
+    # return sorted(rootnode.childNodes, key=lambda c: c.visits)[-1].move  # return the move that was most visited

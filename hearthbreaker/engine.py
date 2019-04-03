@@ -7,7 +7,7 @@ import hearthbreaker.tags
 from hearthbreaker.tags.base import Effect, AuraUntil
 import hearthbreaker.targeting
 
-from hearthbreaker.agents.basic_agents import RandomAgent
+from hearthbreaker.agents.basic_agents import RandomAgent, OpponentAgent
 from hearthbreaker.agents.test_agent import TalkativeAgent
 from hearthbreaker.agents.aggressive_agent import AggressiveAgent
 from hearthbreaker.agents.controlling_agent import ControllingAgent
@@ -183,6 +183,7 @@ class Game(Bindable):
             # if self._turns_passed==5:
             #     game_copy = self.copy()
             self.play_single_turn()
+
             
 
             # # Proba zmiany rodzaju agenta po 10 rundzie - dziala ok
