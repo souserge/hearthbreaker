@@ -3,6 +3,7 @@ from hearthbreaker.agents.basic_agents import RandomAgent
 from hearthbreaker.agents.test_agent import TalkativeAgent
 from hearthbreaker.agents.aggressive_agent import AggressiveAgent
 from hearthbreaker.agents.controlling_agent import ControllingAgent
+from hearthbreaker.agents.mcts_agent import MCTSAgent
 from hearthbreaker.cards.heroes import Jaina, Malfurion, hero_for_class
 from hearthbreaker.constants import CHARACTER_CLASS
 from hearthbreaker.engine import Game, Deck, card_lookup
@@ -60,7 +61,7 @@ def do_stuff():
     cards = load_deck("mage3.hsdeck")
     deck1 = Deck(cards, Jaina())
     deck2 = Deck(cards, Malfurion())
-    game = Game([deck1, deck2], [AggressiveAgent(), RandomAgent()])
+    game = Game([deck1, deck2], [MCTSAgent(2), RandomAgent()])
     # game = Game([deck1, deck2], [ControllingAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [TalkativeAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [RandomAgent(), RandomAgent()])
