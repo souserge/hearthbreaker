@@ -1,4 +1,4 @@
-from hearthbreaker.agents.basic_agents import Agent
+from hearthbreaker.agents.basic_agents import Agent, DoNothingAgent
 from itertools import combinations 
 
 def get_minions_to_use(game):
@@ -81,18 +81,17 @@ class GameState:
     def __repr__(self):
         pass
 
-# nie wiem czy MCTSAgent bedzie potrzebny
-class MCTSAgent(Agent):
+class MCTSAgent(DoNothingAgent):
+    def __init__(self, depth=100):
+        super().__init__()
+        self.depth = depth
 
-    def get_minions_to_use(game, curr_player):
-        minions_to_use = []
-        for minion in curr_player.minions:
-            if minion.can_attack():
-                minions_to_use.append(minion)
-        return minions_to_use        
-
-    def choose_target(self, targets):
-        return targets[0]
+    def do_turn(self, player):
+        print('---\nTurn of', player)
+        state = GameState(player.game)
+        move = UCT(rootstate = state, itermax = self.depth, verbose = False)
+        print(move)
+        play_move(player.game,move)
 
 class Node:
     """ A node in the game tree. Note wins is always from the viewpoint of playerJustMoved.
