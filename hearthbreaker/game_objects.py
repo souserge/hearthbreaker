@@ -455,7 +455,7 @@ class Character(Bindable, GameObject, metaclass=abc.ABCMeta):
         self.stealth = False
         self.current_target = None
     
-    def attack(self):
+    def attack(self, target=None):
         """
         Causes this :class:`Character` to attack.
 
@@ -490,7 +490,9 @@ class Character(Bindable, GameObject, metaclass=abc.ABCMeta):
             targets.append(self.player.game.other_player.hero)
 
         # print("---\nTARGETS:", targets)
-        target = self.choose_target(targets)
+        if target is None:
+            target = self.choose_target(targets)
+
         self._remove_stealth()
         self.current_target = target
         self.player.trigger("character_attack", self, self.current_target)
@@ -871,14 +873,23 @@ class Weapon(Bindable, GameObject):
 
 
 class Minion(Character):
+    auto_key = 0
+
     def __init__(self, attack, health,
                  deathrattle=None, taunt=False, charge=False, spell_damage=0, divine_shield=False, stealth=False,
                  windfury=False, spell_targetable=True, effects=None, auras=None, buffs=None,
-                 enrage=None):
+                 enrage=None, key=None):
         super().__init__(attack, health, enrage, effects, auras, buffs)
         self.game = None
         self.card = None
         self.index = -1
+        
+        if key is None:
+            self.key = Minion.auto_key
+            Minion.auto_key += 1
+        else:
+            self.key = key
+
         self.taunt = 0
         self.replaced_by = None
         self.can_be_targeted_by_spells = True
@@ -1006,8 +1017,8 @@ class Minion(Character):
         self.removed = True
         self.replaced_by = new_minion
 
-    def attack(self):
-        super().attack()
+    def attack(self, target=None):
+        super().attack(target)
 
     def damage(self, amount, attacker):
         if self.divine_shield:
@@ -1069,7 +1080,7 @@ class Minion(Character):
                             auras=copy.deepcopy(self.auras),
                             buffs=copy.deepcopy(self.buffs),
                             deathrattle=copy.deepcopy(self.deathrattle),
-                            enrage=copy.deepcopy(self.enrage))
+                            enrage=copy.deepcopy(self.enrage), key=self.key)
         new_minion.health = self.base_health - (self.calculate_max_health() - self.health)
         new_minion.enraged = self.enraged
         new_minion.immune = self.immune
