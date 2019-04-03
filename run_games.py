@@ -50,8 +50,8 @@ def do_stuff():
             print("# " * 61, "\n")
 
         except Exception as e:
-            print(json.dumps(new_game.__to_json__(), default=lambda o: o.__to_json__(), indent=1))
-            print(new_game._all_cards_played)
+            # print(json.dumps(new_game.__to_json__(), default=lambda o: o.__to_json__(), indent=1))
+            # print(new_game._all_cards_played)
             raise e
 
         del new_game
@@ -62,7 +62,7 @@ def do_stuff():
     cards = load_deck("mage3.hsdeck")
     deck1 = Deck(cards, Jaina())
     deck2 = Deck(cards, Malfurion())
-    game = Game([deck1, deck2], [MCTSAgent(2), RandomAgent()])
+    game = Game([deck1, deck2], [MCTSAgent(20), RandomAgent()])
     # game = Game([deck1, deck2], [AggressiveAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [ControllingAgent(), RandomAgent()])
     # game = Game([deck1, deck2], [TalkativeAgent(), RandomAgent()])

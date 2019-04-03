@@ -613,7 +613,7 @@ class Character(Bindable, GameObject, metaclass=abc.ABCMeta):
             self.trigger("damaged", amount, attacker)
             self.player.trigger("character_damaged", self, attacker, amount)
             if self.health <= 0:
-                self.die(attacker)
+                self.die(self)
             self.trigger("health_changed")
             if not self.enraged and self.health != self.calculate_max_health():
                 self.enraged = True

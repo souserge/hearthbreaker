@@ -87,7 +87,7 @@ class GameState:
         # print("CARDS COMB AF")
         # print(cards_combinations)
         # print(list(filter(lambda xs: sum([x.mana_cost() for x in xs]) > player.mana, cards_combinations)) + [[]])
-        print("-------------------")
+        # print("-------------------")
 
         # get all combinations of attacks (order matters):
         attack_sequences = get_inner_tree(self.game) + [[]]
@@ -100,8 +100,8 @@ class GameState:
         # print("---\n", player, "'s mana:", player.mana)
         # print("Possible cards to play:", possible_cards_to_play)
         # print("Cards combinations:", cards_combinations)
-        #print("Attack sequences:", attack_sequences)
-        print("All possible moves:",all_possible_moves)
+        # print("Attack sequences:", attack_sequences)
+        # print("All possible moves:",all_possible_moves)
 
         return all_possible_moves
 
@@ -145,7 +145,18 @@ class MCTSAgent(DoNothingAgent):
         self.print_info_about_turn(player)
         state = GameState(player.game)
         move = uct(rootstate = state, itermax = self.depth, verbose = False)
+
+        print("***AFTER UCT***")
+        print("Before playing the move:")
+        print("\tHand:", player.hand,"\n\tMinions:", player.minions, "\n\tMana:", player.mana, "\n\tHero:", player.hero.health)
+
+        print("---\nChosen move:", move)
         play_move(player.game, move)
+
+        print("---\nAfter playing the move:")
+        print("\tHand:", player.hand,"\n\tMinions:", player.minions, "\n\tMana:", player.mana, "\n\tHero:", player.hero.health)
+
+        print("*********")
 
 class Node:
     """ A node in the game tree. Note wins is always from the viewpoint of playerJustMoved.
@@ -212,7 +223,9 @@ def uct(rootstate, itermax, verbose=False):
         node = rootnode
         state = rootstate.clone()
 
-        print("Turn:", state.game._turns_passed, ", iteration:", i)
+        print("Turn:", state.game._turns_passed, ", iteration:", i, "\nTried moves:", len(node.childNodes),
+            "\nuntried moves:", len(node.untriedMoves))
+
         # Select
         while node.untriedMoves == [] and node.childNodes != []:  # node is fully expanded and non-terminal
             node = node.uct_select_child()
@@ -239,13 +252,8 @@ def uct(rootstate, itermax, verbose=False):
                 game_copy._start_turn()
                 game_copy.current_player.agent.do_turn(game_copy.current_player)
                 game_copy._end_turn()
-            if game_copy.current_player.hero.dead:
-                print("current player DEAD")
-            elif game_copy.other_player.hero.dead:
-                print("other player DEAD")
-            else:
-                print("ERROR: no one won")
             curr_player_won = 0 if game_copy.current_player.hero.dead else 1
+            print("Rollout - current player won") if curr_player_won == 0 else print("Rollout - other player won")
 
         # My Backpropagate
         while node != None:  # backpropagate from the expanded node and work back to the root node

@@ -82,14 +82,14 @@ class Game(Bindable):
 
     def attack_target(self, minion, target_to_attack):
 
-        filtered_minions_attackers = list(filter(lambda x: x.index==minion.index, self.current_player.minions)) 
+        filtered_minions_attackers = list(filter(lambda x: x==minion, self.current_player.minions))
         if len(filtered_minions_attackers)<1:
             raise Exception('No minions found in game copy: {}'.format(filtered_minions_attackers))
         attacking_minion = filtered_minions_attackers[0]
         if target_to_attack.is_hero():
             target_to_attack = self.other_player.hero
         else:
-            filtered_minions_targets = list(filter(lambda x: x.index==target_to_attack.index, self.other_player.minions))
+            filtered_minions_targets = list(filter(lambda x: x==target_to_attack, self.other_player.minions))
             if len(filtered_minions_targets)<1:
                 raise Exception('No minion targets found in game copy: {}'.format(filtered_minions_targets))
             target_to_attack = filtered_minions_targets[0]
