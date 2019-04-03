@@ -7,18 +7,14 @@ import math
 from hearthbreaker.agents.basic_agents import RandomAgent, DoNothingAgent
 
 def play_move(game, chosen_move):
-    # chosen_move = (cards, attacks) = ( (('Voodoo Doctor', 1),) , [] )
-    # dlaczego cards to krotka, a attacks to list? chyba obydwe rzeczy powinny być typu list
-
-    # game._start_turn()
     cards, attacks = chosen_move
+
     for card in cards:
         game.play_card(card)
     
     for (minion, target) in attacks:
         game.attack_target(minion, target)
 
-    # end round 
     game._end_turn()
 
 
@@ -177,10 +173,8 @@ class Node:
         self.visits += 1
         self.wins += result
 
-    # def __repr__(self):
-    #     return "[M:" + str(self.move) + " W/V:" + str(self.wins) + "/" + str(self.visits) + " U:" + str(self.untriedMoves) + "]"
-
     def __repr__(self):
+        # return "[M:" + str(self.move) + " W/V:" + str(self.wins) + "/" + str(self.visits) + " U:" + str(self.untriedMoves) + "]"
         return "[M:" + str(self.move) + " W/V:" + str(self.wins) + "/" + str(self.visits) + "]"
 
     def tree_to_string(self, indent):
@@ -211,8 +205,8 @@ def uct(rootstate, itermax, verbose=False):
         print("Turn:", state.game._turns_passed, ", iteration:", i)
         # Select
         while node.untriedMoves == [] and node.childNodes != []:  # node is fully expanded and non-terminal
+            node = node.uct_select_child()
             print("==========\nSelect - chosen move:", node.move)
-            node = node.UCTSelectChild()
             state.do_move(node.move)
             print("Select - finished selecting for move:", node.move, "\n==========")
 
@@ -223,15 +217,6 @@ def uct(rootstate, itermax, verbose=False):
             state.do_move(m)
             node = node.add_child(m, state)  # add child and descend tree
             print("Expand - finished expanding for move:", m, "\n==========")
-
-        # # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
-        # while state.get_moves() != []:  # while state is non-terminal
-        #     m = random.choice(state.get_moves())
-        #     print("==========\nRollout - chosen random move:", m)
-        #     state.do_move(m)
-        #     print("Rollout - finished rollout for random move:", m, "\n==========")
-        #     state.game._start_turn()
-        #     print("current",state.game.current_player)
 
         # My rollout
         curr_player_won = 0
@@ -252,15 +237,6 @@ def uct(rootstate, itermax, verbose=False):
                 print("ERROR: no one won")
             curr_player_won = 0 if game_copy.current_player.hero.dead else 1
 
-
-        # # Backpropagate
-        # while node != None:  # backpropagate from the expanded node and work back to the root node
-        #     print("==========\nBackpropagation - updating node:", node)
-        #     node.update(state.get_result(
-        #         node.playerJustMoved))  # state is terminal. update node with result from POV of node.playerJustMoved
-        #     print("Backpropagation - finished updating node:", node, "\n==========")
-        #     node = node.parentNode
-
         # My Backpropagate
         while node != None:  # backpropagate from the expanded node and work back to the root node
             print("==========\nBackpropagation - updating node:", node)
@@ -269,7 +245,7 @@ def uct(rootstate, itermax, verbose=False):
             node = node.parentNode
 
     # Output some information about the tree - can be omitted
-    if (verbose): print(rootnode.tree_to_string(0))
-    else: print(rootnode.children_to_string())
+    if (verbose): print("Tree info:",rootnode.tree_to_string(0))
+    else: print("Children of tree info:",rootnode.children_to_string())
 
     return sorted(rootnode.childNodes, key=lambda c: c.visits)[-1].move  # return the move that was most visited
