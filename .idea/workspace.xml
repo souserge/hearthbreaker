@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04d26fac-3d7e-46f4-bab5-1d9fd2a59775" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" afterPath="$PROJECT_DIR$/hearthbreaker/agents/basic_agents.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py" afterPath="$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py" />
-      <change beforePath="$PROJECT_DIR$/run_games.py" afterPath="$PROJECT_DIR$/run_games.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,18 +71,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mcts_agent.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mcts_agent.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1752">
-              <caret line="137" column="8" lean-forward="true" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
+            <state relative-caret-position="215">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="e#0#60#0" expanded="true" />
-                <marker date="1554285147314" expanded="true" signature="264:457" ph="..." />
-                <marker date="1554285147314" expanded="true" signature="7243:9737" ph="..." />
-                <marker date="1554285147314" expanded="true" signature="7519:7794" ph="..." />
-                <marker date="1554285147314" expanded="true" signature="8190:8212" ph="..." />
-                <marker date="1554285147314" expanded="true" signature="9085:9113" ph="..." />
+                <marker date="1554285925341" expanded="true" signature="264:516" ph="..." />
+                <marker date="1554285925341" expanded="true" signature="3663:3984" ph="..." />
+                <marker date="1554285925341" expanded="true" signature="7663:10157" ph="..." />
+                <marker date="1554285925341" expanded="true" signature="7939:8214" ph="..." />
+                <marker date="1554285925341" expanded="true" signature="8610:8632" ph="..." />
+                <marker date="1554285925341" expanded="true" signature="9505:9533" ph="..." />
               </folding>
             </state>
           </provider>
@@ -116,17 +116,17 @@
               <caret line="155" column="39" lean-forward="false" selection-start-line="155" selection-start-column="39" selection-end-line="155" selection-end-column="39" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <marker date="1554283955958" expanded="true" signature="3297:4911" ph="..." />
+                <marker date="1554285549449" expanded="true" signature="3297:4911" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="engine.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="engine.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
-              <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+              <caret line="90" column="13" lean-forward="false" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -155,7 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>player card</find>
       <find>boulderfist</find>
       <find>print</find>
       <find>GetMoves</find>
@@ -185,6 +184,7 @@
       <find>TURN OF</find>
       <find>do_turn(</find>
       <find>play_move(game</find>
+      <find>play_m</find>
     </findStrings>
     <dirStrings>
       <dir>D:\studia\___cos\hearthbreaker</dir>
@@ -222,9 +222,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="679" />
-    <option name="width" value="1249" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="width" value="1044" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -386,16 +386,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="0" width="1044" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48508286" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33072627" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35911602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.128125" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23976608" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -487,27 +487,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py</url>
-          <line>250</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py</url>
-          <line>201</line>
+          <line>211</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py</url>
-          <line>136</line>
+          <line>146</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py</url>
-          <line>135</line>
+          <line>145</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py</url>
-          <line>105</line>
+          <line>115</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
@@ -855,7 +850,7 @@
           <caret line="155" column="39" lean-forward="false" selection-start-line="155" selection-start-column="39" selection-end-line="155" selection-end-column="39" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1554283955958" expanded="true" signature="3297:4911" ph="..." />
+            <marker date="1554285549449" expanded="true" signature="3297:4911" ph="..." />
           </folding>
         </state>
       </provider>
@@ -894,27 +889,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py">
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1752">
-          <caret line="137" column="8" lean-forward="true" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
+        <state relative-caret-position="208">
+          <caret line="90" column="13" lean-forward="false" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
-            <marker date="1554285147314" expanded="true" signature="264:457" ph="..." />
-            <marker date="1554285147314" expanded="true" signature="7243:9737" ph="..." />
-            <marker date="1554285147314" expanded="true" signature="7519:7794" ph="..." />
-            <marker date="1554285147314" expanded="true" signature="8190:8212" ph="..." />
-            <marker date="1554285147314" expanded="true" signature="9085:9113" ph="..." />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hearthbreaker/engine.py">
+    <entry file="file://$PROJECT_DIR$/hearthbreaker/agents/mcts_agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+        <state relative-caret-position="215">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#60#0" expanded="true" />
+            <marker date="1554285925341" expanded="true" signature="264:516" ph="..." />
+            <marker date="1554285925341" expanded="true" signature="3663:3984" ph="..." />
+            <marker date="1554285925341" expanded="true" signature="7663:10157" ph="..." />
+            <marker date="1554285925341" expanded="true" signature="7939:8214" ph="..." />
+            <marker date="1554285925341" expanded="true" signature="8610:8632" ph="..." />
+            <marker date="1554285925341" expanded="true" signature="9505:9533" ph="..." />
           </folding>
         </state>
       </provider>
