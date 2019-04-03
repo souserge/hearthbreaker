@@ -63,7 +63,7 @@ def do_stuff():
     cards = load_deck("mage3.hsdeck")
     deck1 = Deck(cards, Jaina())
     deck2 = Deck(cards, Malfurion())
-    game = Game([deck1, deck2], [MCTSAgent(2), RandomAgent()])
+    game = Game([deck1, deck2], [MCTSAgent(5), RandomAgent()])
     # game = Game([deck1, deck2], [AggressiveAgent(), RandomAgent()])
 
     # game = Game([deck1, deck2], [ControllingAgent(), RandomAgent()])

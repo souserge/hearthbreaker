@@ -35,7 +35,12 @@ def get_inner_tree(game):
             attack = (minion, target)
             attack_sequences.append([attack]) 
             game_copy = game.copy()
+            print("ATTACK TARGET", minion, "===>", target)
+            print("MY minions in game_copy: ", game_copy.current_player.minions)
+            print("Opponent's minions in game_copy: ", game_copy.other_player.minions)
             game_copy.attack_target(minion,target)
+            print("AFTER ATTACK", minion, "===>", target)
+            print("minions in game_copy", game_copy.other_player.minions)
             a = get_inner_tree(game_copy)
             new_a = list(map(lambda x: [attack]+x,a))
             attack_sequences += new_a
@@ -101,7 +106,7 @@ class GameState:
         # print("Possible cards to play:", possible_cards_to_play)
         # print("Cards combinations:", cards_combinations)
         #print("Attack sequences:", attack_sequences)
-        print("All possible moves:",all_possible_moves)
+        # print("All possible moves:",all_possible_moves)
 
         return all_possible_moves
 

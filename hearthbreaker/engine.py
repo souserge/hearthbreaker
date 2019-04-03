@@ -83,8 +83,9 @@ class Game(Bindable):
     # Function added for MCTS
 
     def attack_target(self, minion, target_to_attack):
-
+        
         filtered_minions_attackers = list(filter(lambda x: x.index==minion.index, self.current_player.minions)) 
+        print("FILTERED MINIONS",filtered_minions_attackers)
         if len(filtered_minions_attackers)<1:
             raise Exception('No minions found in game copy: {}'.format(filtered_minions_attackers))
         attacking_minion = filtered_minions_attackers[0]
@@ -111,6 +112,9 @@ class Game(Bindable):
         target.damage(my_attack, attacking_minion)
         attacking_minion.player.game.check_delayed()
         attacking_minion.trigger("attack_completed")
+        print("STATS AFTER ATTACK")
+        print("==== ATTACKER", attacking_minion )
+        print("==== TARGET", target)
         attacking_minion.attacks_performed += 1
         attacking_minion.stealth = False
         attacking_minion.current_target = None
