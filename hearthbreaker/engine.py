@@ -180,6 +180,7 @@ class Game(Bindable):
         changed_agent = False
         game_copy = None
         while not self.game_ended:
+            print(self.current_player)
             self.play_single_turn()
 
         return self.players[1] if self.players[0].hero.dead else self.players[0]
@@ -249,6 +250,11 @@ class Game(Bindable):
 
         self.check_delayed()
         self._has_turn_ended = True
+        if self._turns_passed > 30:
+            self.current_player.hero.dead = True
+            self.other_player.hero.dead = True
+            self.game_over()
+
 
     def copy(self):
         copied_game = copy.copy(self)

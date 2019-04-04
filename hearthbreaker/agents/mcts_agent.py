@@ -87,25 +87,36 @@ class GameState:
         self.playerJustMoved = self.game.current_player
         self.game._start_turn()
 
+    def do_random_move(self, moves, tries=10):
+        move_idx = random.randint(0, len(moves) - 1)
+        move = moves[move_idx]
+        try:
+            self.do_move(move)
+        except Exception:
+            if tries == 0:
+                self.do_move(([], []))
+            self.do_random_move(moves[:move_idx] + moves[move_idx + 1:], tries - 1)
+
     def get_moves(self):
         """ Get all possible moves from this state.
         """
         player = self.game.current_player
         opponent = self.game.other_player
 
-        if player.hero.dead or opponent.hero.dead:
+        if player.hero.dead or opponent.hero.dead or self.game.game_ended:
             return []
 
         cards = player.hand
-        possible_cards_to_play = list(filter(lambda x: x.mana <= player.mana, cards))
+        possible_cards_to_play = list(filter(lambda x: x.can_use(player, self.game), cards))
         # get all combinations of cards play (order doesn't matter):
         cards_combinations = []
         for r in range(len(possible_cards_to_play) + 1):
             combs = list(map(lambda x: list(x), combinations(possible_cards_to_play, r)))
             cards_combinations.extend(combs)
 
-        cards_combinations = list(
-            filter(lambda xs: sum([x.mana_cost() for x in xs]) <= player.mana, cards_combinations))  # + [[]]
+        def cards_filter(xs): return sum([x.mana_cost()
+                                          for x in xs]) <= player.mana and len(player.minions) + len(xs) < 7
+        cards_combinations = list(filter(cards_filter, cards_combinations))  # + [[]]
 
         # get all combinations of attacks (order matters):
         attack_sequences = get_inner_tree(self.game) + [[]]
@@ -217,9 +228,10 @@ def UCT(rootstate, itermax, verbose=False):
             node = node.add_child(m, state)  # add child and descend tree
 
         # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
-        while state.get_moves() != []:  # while state is non-terminal
-            move = random.choice(state.get_moves())
-            state.do_move(move)
+        moves = state.get_moves()
+        while moves != []:  # while state is non-terminal
+            state.do_random_move(moves)
+            moves = state.get_moves()
 
         # Backpropagate
         while node != None:  # backpropagate from the expanded node and work back to the root node

@@ -12,7 +12,6 @@ import timeit
 from hearthbreaker.agents.mcts_agent import MCTSAgent
 
 
-
 def load_deck(filename):
     cards = []
 
@@ -41,7 +40,7 @@ def do_stuff():
         new_game = game.copy()
         try:
             winner = new_game.start()
-            print("Winner: ",winner)
+            print("Winner: ", winner)
 
             print()
             print("# " * 27, " GAME OVER ", " #" * 27)
@@ -63,7 +62,7 @@ def do_stuff():
     cards = load_deck("mage3.hsdeck")
     deck1 = Deck(cards, Jaina())
     deck2 = Deck(cards, Jaina())
-    game = Game([deck1, deck2], [MCTSAgent(5), RandomAgent()])
+    game = Game([deck1, deck2], [MCTSAgent(3), RandomAgent()])
     print(timeit.timeit(play_game, 'gc.enable()', number=1))
 
 
