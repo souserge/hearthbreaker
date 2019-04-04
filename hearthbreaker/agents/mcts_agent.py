@@ -53,12 +53,7 @@ def get_inner_tree(game):
             attack = (minion, target)
             attack_sequences.append([attack]) 
             game_copy = game.copy()
-            print("ATTACK TARGET", minion, "===>", target)
-            print("MY minions in game_copy: ", game_copy.current_player.minions)
-            print("Opponent's minions in game_copy: ", game_copy.other_player.minions)
             attack_target(minion, target, game_copy)
-            print("AFTER ATTACK", minion, "===>", target)
-            print("minions in game_copy", game_copy.other_player.minions)
             a = get_inner_tree(game_copy)
             new_a = list(map(lambda x: [attack]+x,a))
             attack_sequences += new_a
@@ -102,14 +97,9 @@ class GameState:
         for r in range(len(possible_cards_to_play)+1):
 	        cards_combinations.extend(list(combinations(possible_cards_to_play, r)))
 
-        # print("CARDS COMB BEF")
-        # print(cards_combinations)
-        # print("MANA", player.mana)
+
         cards_combinations = list(
             filter(lambda xs: sum([x.mana_cost() for x in xs]) <= player.mana, cards_combinations))  # + [[]]
-        # print("CARDS COMB AF")
-        # print(cards_combinations)
-        # print(list(filter(lambda xs: sum([x.mana_cost() for x in xs]) > player.mana, cards_combinations)) + [[]])
 
         # get all combinations of attacks (order matters):
         attack_sequences = get_inner_tree(self.game) + [[]]
@@ -117,13 +107,6 @@ class GameState:
         seq = map(lambda cc: list(map(lambda aseq: (cc,aseq), attack_sequences)), cards_combinations)
         # [[(), ()],[(), ()]] => [(), (), (), ()]
         all_possible_moves = functools.reduce(operator.add, seq, [])
-
-        ##### printing informations
-        # print("---\n", player, "'s mana:", player.mana)
-        # print("Possible cards to play:", possible_cards_to_play)
-        # print("Cards combinations:", cards_combinations)
-        #print("Attack sequences:", attack_sequences)
-        # print("All possible moves:",all_possible_moves)
 
         return all_possible_moves
 
@@ -141,10 +124,8 @@ class MCTSAgent(DoNothingAgent):
         self.depth = depth
 
     def do_turn(self, player):
-        print('---\nTurn of', player)
         state = GameState(player.game)
         move = UCT(rootstate = state, itermax = self.depth, verbose = False)
-        print(move)
         play_move(player.game, move)
 
 class Node:
@@ -235,7 +216,8 @@ def UCT(rootstate, itermax, verbose=False):
             node = node.parentNode
 
     # Output some information about the tree - can be omitted
-    if (verbose): print(rootnode.tree_to_string(0))
-    else: print(rootnode.children_to_string())
+    if (verbose):
+        print(rootnode.tree_to_string(0))
+        print(rootnode.children_to_string())
 
     return sorted(rootnode.childNodes, key=lambda c: c.visits)[-1].move # return the move that was most visited

@@ -81,11 +81,9 @@ class Game(Bindable):
         self.selected_card = None
 
     # Function added for MCTS
-
     def attack_target(self, minion, target_to_attack):
         
         filtered_minions_attackers = list(filter(lambda x: x.index==minion.index, self.current_player.minions)) 
-        print("FILTERED MINIONS",filtered_minions_attackers)
         if len(filtered_minions_attackers)<1:
             raise Exception('No minions found in game copy: {}'.format(filtered_minions_attackers))
         attacking_minion = filtered_minions_attackers[0]
@@ -112,9 +110,6 @@ class Game(Bindable):
         target.damage(my_attack, attacking_minion)
         attacking_minion.player.game.check_delayed()
         attacking_minion.trigger("attack_completed")
-        print("STATS AFTER ATTACK")
-        print("==== ATTACKER", attacking_minion )
-        print("==== TARGET", target)
         attacking_minion.attacks_performed += 1
         attacking_minion.stealth = False
         attacking_minion.current_target = None
@@ -185,37 +180,9 @@ class Game(Bindable):
         changed_agent = False
         game_copy = None
         while not self.game_ended:
-            # print("\nturn:",self._turns_passed)
-            # if self._turns_passed==5:
-            #     game_copy = self.copy()
             self.play_single_turn()
-            
 
-            # # Proba zmiany rodzaju agenta po 10 rundzie - dziala ok
-            # if self._turns_passed>10 and not changed_agent:
-            #     print("... changing agent from:", type(self.players[0].agent),"to: ", end='')
-            #     changed_agent = True
-            #     self.players[0].change_agent(RandomAgent())
-            #     print(type(self.players[0].agent), "...")
-
-        winner = self.players[1] if self.players[0].hero.dead else self.players[0]
-
-        # print()
-        # print("# "*27, " GAME OVER ", " #"*27)
-        # print(self.players[0],"has", self.players[0].hero.health, "life points,\t", end='')
-        # print(self.players[1], "has", self.players[1].hero.health, "life points")
-        # print(winner, 'won the game (', winner.agent, ')')
-        # print("# "*61, "\n")
-        # print("Continue game from 10 round")
-        # while not game_copy.game_ended:
-        #     print("\nturn:",game_copy._turns_passed)
-        #     game_copy.play_single_turn()
-        
-        # winner = game_copy.players[1] if game_copy.players[0].hero.dead else game_copy.players[0]
-            
-
-        return winner
-
+        return self.players[1] if self.players[0].hero.dead else self.players[0]
 
 
     def play_single_turn(self):
@@ -233,10 +200,7 @@ class Game(Bindable):
             self.current_player = self.players[0]
             self.other_player = self.players[1]
             self._turns_passed += 1
-        # if self._turns_passed >= 50:
-        #     self.players[0].hero.dead = True
-        #     self.players[1].hero.dead = True
-        #     self.game_over()
+
         if self.current_player.max_mana < 10:
             self.current_player.max_mana += 1
 
@@ -318,11 +282,6 @@ class Game(Bindable):
             raise GameException("The game has ended")
         if not card.can_use(self.current_player, self):
             raise GameException("That card cannot be used")
-
-        # print("PLAYER HAND: ", self.current_player.hand)
-        # print("PLAYER CARD: ", card)
-        if card not in self.current_player.hand:
-            print("\n@@@@@ ERROR IS COMING @@@@@\n@@ CARD IS NOT IN PLAYER.HAND@@\n")
 
         card_index = self.current_player.hand.index(card)
 

@@ -200,7 +200,6 @@ class GameObject:
                                                        if aura.match(self) and isinstance(aura.status, stat_class)],
                       stat)
 
-        # print(">>>Stat:", stat)
         return max(0, stat)
 
     def __to_json__(self):
