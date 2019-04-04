@@ -472,24 +472,23 @@ class Character(Bindable, GameObject, metaclass=abc.ABCMeta):
         if not self.can_attack():
             raise GameException("That minion cannot attack")
 
-        found_taunt = False
-        targets = []
-        for enemy in self.player.game.other_player.minions:
-            if enemy.taunt and enemy.can_be_attacked():
-                found_taunt = True
-            if enemy.can_be_attacked():
-                targets.append(enemy)
-            if isinstance(enemy, Hero):
-                print("=\n==\n===\n====\n===== ERROR\n====\n===\n==\n=")
-
-
-        if found_taunt:
-            targets = [target for target in targets if target.taunt]
-        else:
-            targets.append(self.player.game.other_player.hero)
-
-        # print("---\nTARGETS:", targets)
         if target is None:
+            found_taunt = False
+            targets = []
+            for enemy in self.player.game.other_player.minions:
+                if enemy.taunt and enemy.can_be_attacked():
+                    found_taunt = True
+                if enemy.can_be_attacked():
+                    targets.append(enemy)
+                if isinstance(enemy, Hero):
+                    print("=\n==\n===\n====\n===== ERROR\n====\n===\n==\n=")
+
+
+            if found_taunt:
+                targets = [target for target in targets if target.taunt]
+            else:
+                targets.append(self.player.game.other_player.hero)
+
             target = self.choose_target(targets)
 
         self._remove_stealth()

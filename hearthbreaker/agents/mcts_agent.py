@@ -29,16 +29,12 @@ def attack_target(minion, target, game):
 
 
 def play_move(game, chosen_move):
-    game._start_turn()
-
     cards, attacks = chosen_move
     for card in cards:
         game.play_card(card)
 
     for (minion, target) in attacks:
         attack_target(minion, target, game)
-
-    game._end_turn()
 
 
 def get_minions_to_use(game):
@@ -74,12 +70,12 @@ class GameState:
         By convention the players are numbered 1 and 2.
     """
 
-    def __init__(self, game):
+    def __init__(self, game, playerjm=None):
         self.game = game
-        self.playerJustMoved = game.other_player  # At the root pretend the player just moved is player 2 - player 1 has the first move
+        self.playerJustMoved = playerjm  # At the root pretend the player just moved is player 2 - player 1 has the first move
 
     def clone(self):
-        return GameState(self.game.copy())
+        return GameState(self.game.copy(), self.playerJustMoved)
 
     def do_move(self, move):
         """ update a state by carrying out the given move.
@@ -87,12 +83,14 @@ class GameState:
         """
         play_move(self.game, move)
         self.playerJustMoved = self.game.current_player
+        self.game._start_turn()
 
     def get_moves(self):
         """ Get all possible moves from this state.
         """
         player = self.game.current_player
         opponent = self.game.other_player
+
         if player.hero.dead or opponent.hero.dead:
             return []
 
@@ -129,9 +127,10 @@ class MCTSAgent(DoNothingAgent):
     def __init__(self, depth=100):
         super().__init__()
         self.depth = depth
+        self.independent = True
 
     def do_turn(self, player):
-        state = GameState(player.game)
+        state = GameState(player.game.copy())
         move = UCT(rootstate=state, itermax=self.depth, verbose=False)
         play_move(player.game, move)
 
@@ -155,8 +154,8 @@ class Node:
             lambda c: c.wins/c.visits + UCTK * sqrt(2*log(self.visits)/c.visits to vary the amount of
             exploration versus exploitation.
         """
-        s = sorted(self.childNodes, key=lambda c: c.wins / c.visits
-                   + math.sqrt(2 * math.log(self.visits) / c.visits))[-1]
+        s = sorted(self.childNodes, key=lambda c: c.wins / c.visits +
+                   math.sqrt(2 * math.log(self.visits) / c.visits))[-1]
         return s
 
     def add_child(self, m, s):
@@ -217,7 +216,8 @@ def UCT(rootstate, itermax, verbose=False):
 
         # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
         while state.get_moves() != []:  # while state is non-terminal
-            state.do_move(random.choice(state.get_moves()))
+            move = random.choice(state.get_moves())
+            state.do_move(move)
 
         # Backpropagate
         while node != None:  # backpropagate from the expanded node and work back to the root node
