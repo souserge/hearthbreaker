@@ -51,13 +51,15 @@ def get_inner_tree(game):
     for minion in minions_use:
         targets = minion.get_targets()
         for target in targets:
-            attack = (minion, target)
-            attack_sequences.append([attack])
-            game_copy = game.copy()
-            attack_target(minion, target, game_copy)
-            a = get_inner_tree(game_copy)
-            new_a = list(map(lambda x: [attack] + x, a))
-            attack_sequences += new_a
+            if (((not target.dead) and target.health > 0)
+                    and ((not minion.dead) and minion.health > 0)):
+                attack = (minion, target)
+                attack_sequences.append([attack])
+                game_copy = game.copy()
+                attack_target(minion, target, game_copy)
+                a = get_inner_tree(game_copy)
+                new_a = list(map(lambda x: [attack] + x, a))
+                attack_sequences += new_a
 
     return attack_sequences
 
@@ -70,12 +72,12 @@ class GameState:
         By convention the players are numbered 1 and 2.
     """
 
-    def __init__(self, game, playerjm=None):
+    def __init__(self, game):
         self.game = game
-        self.playerJustMoved = playerjm  # At the root pretend the player just moved is player 2 - player 1 has the first move
+        self.playerJustMoved = game.other_player  # At the root pretend the player just moved is player 2 - player 1 has the first move
 
     def clone(self):
-        return GameState(self.game.copy(), self.playerJustMoved)
+        return GameState(self.game.copy())
 
     def do_move(self, move):
         """ update a state by carrying out the given move.
