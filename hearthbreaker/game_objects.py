@@ -426,7 +426,7 @@ class Character(Bindable, GameObject, metaclass=abc.ABCMeta):
             if enemy.can_be_attacked():
                 targets.append(enemy)
             if isinstance(enemy, Hero):
-                print("=\n==\n===\n====\n===== ERROR\n====\n===\n==\n=")
+                raise ValueError('Hero found in minions list')
         
         if found_taunt:
             targets = [target for target in targets if target.taunt]
