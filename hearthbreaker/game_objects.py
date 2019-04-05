@@ -423,7 +423,7 @@ class Character(Bindable, GameObject, metaclass=abc.ABCMeta):
         for enemy in self.player.game.other_player.minions:
             if enemy.taunt and enemy.can_be_attacked():
                 found_taunt = True
-            if enemy.can_be_attacked():
+            if enemy.can_be_attacked() and not enemy.dead:
                 targets.append(enemy)
             if isinstance(enemy, Hero):
                 raise ValueError('Hero found in minions list')

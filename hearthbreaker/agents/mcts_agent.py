@@ -5,6 +5,7 @@ import operator
 import random
 import math
 from hearthbreaker.agents.basic_agents import RandomAgent, DoNothingAgent
+import copy
 
 
 def find_minion(m, ms):
@@ -23,51 +24,27 @@ def find_target(t, ts, hero):
 
 
 def attack_target(minion, target, game):
-    m = find_minion(minion, game.current_player.minions)
+    m = find_minion(minion, copy.copy(game.current_player.minions))
     t = find_target(target, game.other_player.minions, game.other_player.hero)
     m.attack(t)
 
 
-def play_move(game, chosen_move):
-    cards, attacks = chosen_move
-    for card in cards:
-        game.play_card(card)
+def play_move(game, move):
+    if isinstance(move, MoveAttack):
+        attack_target(move.minion, move.target, game)
+        # move.minion.attack(move.target)
+        return True
+    elif isinstance(move, MoveCard):
+        game.play_card(move.card)
+        return True
 
-    for (minion, target) in attacks:
-        attack_target(minion, target, game)
-
-
-def get_minions_to_use(game):
-    minions_to_use = []
-    for minion in game.current_player.minions:
-        if minion.can_attack():
-            minions_to_use.append(minion)
-    return minions_to_use
-
-
-def get_inner_tree(game):
-    attack_sequences = []
-    minions_use = get_minions_to_use(game)
-    for minion in minions_use:
-        targets = minion.get_targets()
-        for target in targets:
-            if (((not target.dead) and target.health > 0)
-                    and ((not minion.dead) and minion.health > 0)):
-                attack = (minion, target)
-                attack_sequences.append([attack])
-                game_copy = game.copy()
-                attack_target(minion, target, game_copy)
-                a = get_inner_tree(game_copy)
-                new_a = list(map(lambda x: [attack] + x, a))
-                attack_sequences += new_a
-
-    return attack_sequences
+    return False
 
 
 class GameState:
     """ A state of the game, i.e. the game board. These are the only functions which are
         absolutely necessary to implement uct in any 2-player complete information deterministic
-        zero-sum game, although they can be enhanced and made quicker, for example by using a 
+        zero-sum game, although they can be enhanced and made quicker, for example by using a
         GetRandomMove() function to generate a random move during rollout.
         By convention the players are numbered 1 and 2.
     """
@@ -83,19 +60,23 @@ class GameState:
         """ update a state by carrying out the given move.
             Must update playerJustMoved.
         """
-        play_move(self.game, move)
-        self.playerJustMoved = self.game.current_player
-        self.game._start_turn()
+        if not play_move(self.game, move):
+            self.game._end_turn()
+            self.playerJustMoved = self.game.current_player
+            self.game._start_turn()
 
     def do_random_move(self, moves, tries=10):
-        move_idx = random.randint(0, len(moves) - 1)
-        move = moves[move_idx]
+        if moves == []:
+            return
+
+        move_idx = random.randint(0, len(moves))
         try:
+            move = moves[move_idx]
             self.do_move(move)
         except Exception:
-            if tries == 0:
-                self.do_move(([], []))
-            self.do_random_move(moves[:move_idx] + moves[move_idx + 1:], tries - 1)
+            return self.do_random_move(moves[:move_idx] + moves[move_idx + 1:], tries - 1)
+
+        return move
 
     def get_moves(self):
         """ Get all possible moves from this state.
@@ -106,29 +87,21 @@ class GameState:
         if player.hero.dead or opponent.hero.dead or self.game.game_ended:
             return []
 
-        cards = player.hand
-        possible_cards_to_play = list(filter(lambda x: x.can_use(player, self.game), cards))
-        # get all combinations of cards play (order doesn't matter):
-        cards_combinations = []
-        for r in range(len(possible_cards_to_play) + 1):
-            combs = list(map(lambda x: list(x), combinations(possible_cards_to_play, r)))
-            cards_combinations.extend(combs)
+        cards = list(map(
+            lambda c: MoveCard(c),
+            filter(lambda c: c.can_use(player, self.game), player.hand)
+        ))
 
-        def cards_filter(xs): return sum([x.mana_cost()
-                                          for x in xs]) <= player.mana and len(player.minions) + len(xs) < 7
-        cards_combinations = list(filter(cards_filter, cards_combinations))  # + [[]]
+        attacks = []
+        for minion in player.minions:
+            if minion.can_attack():
+                for target in minion.get_targets():
+                    attacks.append(MoveAttack(minion, target))
 
-        # get all combinations of attacks (order matters):
-        attack_sequences = get_inner_tree(self.game) + [[]]
-
-        seq = map(lambda cc: list(map(lambda aseq: (cc, aseq), attack_sequences)), cards_combinations)
-        # [[(), ()],[(), ()]] => [(), (), (), ()]
-        all_possible_moves = functools.reduce(operator.add, seq, [])
-
-        return all_possible_moves
+        return cards + attacks + [MoveEnd()]
 
     def get_result(self, playerjm):
-        """ Get the game result from the viewpoint of playerjm. 
+        """ Get the game result from the viewpoint of playerjm.
         """
         return 0 if playerjm.hero.dead else 1
 
@@ -143,9 +116,35 @@ class MCTSAgent(DoNothingAgent):
         self.independent = True
 
     def do_turn(self, player):
-        state = GameState(player.game.copy())
-        move = UCT(rootstate=state, itermax=self.depth, verbose=False)
-        play_move(player.game, move)
+        while True:
+            state = GameState(player.game.copy())
+            move = UCT(rootstate=state, itermax=self.depth, verbose=False)
+            if isinstance(move, MoveEnd):
+                break
+            play_move(player.game, move)
+
+
+class Move:
+    def __init__(self, type):
+        self.type = type
+
+
+class MoveAttack(Move):
+    def __init__(self, minion, target):
+        super().__init__('attack')
+        self.minion = minion
+        self.target = target
+
+
+class MoveCard(Move):
+    def __init__(self, card):
+        super().__init__('card')
+        self.card = card
+
+
+class MoveEnd(Move):
+    def __init__(self):
+        super().__init__('end')
 
 
 class Node:
@@ -223,9 +222,9 @@ def UCT(rootstate, itermax, verbose=False):
 
         # Expand
         if node.untriedMoves != []:  # if we can expand (i.e. state/node is non-terminal)
-            m = random.choice(node.untriedMoves)
-            state.do_move(m)
-            node = node.add_child(m, state)  # add child and descend tree
+            m = state.do_random_move(node.untriedMoves)
+            if m:
+                node = node.add_child(m, state)  # add child and descend tree
 
         # Rollout - this can often be made orders of magnitude quicker using a state.GetRandomMove() function
         moves = state.get_moves()
@@ -244,4 +243,6 @@ def UCT(rootstate, itermax, verbose=False):
         print(rootnode.tree_to_string(0))
         print(rootnode.children_to_string())
 
+    if rootnode.childNodes == []:
+        return MoveEnd()
     return sorted(rootnode.childNodes, key=lambda c: c.visits)[-1].move  # return the move that was most visited

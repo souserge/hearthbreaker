@@ -62,7 +62,7 @@ def do_stuff():
     cards = load_deck("mage3.hsdeck")
     deck1 = Deck(cards, Jaina())
     deck2 = Deck(cards, Jaina())
-    game = Game([deck1, deck2], [MCTSAgent(3), RandomAgent()])
+    game = Game([deck1, deck2], [MCTSAgent(100), RandomAgent()])
     print(timeit.timeit(play_game, 'gc.enable()', number=1))
 
 
